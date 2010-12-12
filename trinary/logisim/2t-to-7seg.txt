@@ -1,0 +1,107 @@
+v2.0 raw
+#
+# coding convention decimal on left, hex on right
+#
+#   -128-        --80-
+#  |     6      |     4
+#  4     4      4     0
+#   --2--        --2--
+#  |     3      |     2
+#  8     2      8     0
+#   --16-  1     --10-  1
+#
+# lisp code that generated the tables at the end of the file
+#
+#
+# (defun maybe-bar (str ndx val)
+#   (if (equal 32 (aref str ndx)) 0 val))
+# 
+# (let ((top) (mid) (bot) (hex) (i) (ch)
+#       (result (make-vector 128 0))
+#       (seven_seg_graphically
+#        '(
+# 	 "a _  b    c    d    e _  f _  .    "
+# 	 "  _|  |_    _    _|  |_|  |_       "
+# 	 " |_|  |_|  |_   |_|  |_   |       ."
+# 
+# 	 "A _  C _  "
+# 	 " |_|  |   "
+# 	 " | |  |_  "
+# 
+# 	 "g _  h    i    j    k _  l    _    "
+# 	 " |    |_   |      |  |_   |        "
+# 	 " |_|  | |  |    |_|  | |  |_    _  "
+# 
+# 	 "m _  n    o    p _  q _  r    !    "
+# 	 "       _    _   |_|  |_|   _     | "
+# 	 " | |  | |  |_|  |      |  |       ."
+# 
+# 	 "s _  t    u    v    w    x _  \"    "
+# 	 " |    |_   | |       | |   _   | | "
+# 	 "  _|  |_   |_|  |_|   _    _       "
+# 
+# 	 "y    z _  0 _  1    2 _  3 _  -    "
+# 	 " |_|    |  | |    |   _|   _|   _  "
+# 	 "  _|  |_   |_|    |  |_    _|      "
+# 
+# 	 "4    5 _  6 _  7 _  8 _  9 _  "
+# 	 " |_|  |_   |_     |  |_|  |_| "
+# 	 "   |   _|  |_|    |  |_|   _| ")))
+#   (while seven_seg_graphically
+#     (setq top (car seven_seg_graphically))
+#     (setq seven_seg_graphically (cdr seven_seg_graphically))
+#     (setq mid (car seven_seg_graphically))
+#     (setq seven_seg_graphically (cdr seven_seg_graphically))
+#     (setq bot (car seven_seg_graphically))
+#     (setq seven_seg_graphically (cdr seven_seg_graphically))
+#     (while (< 0 (length top)) 
+#       (setq hex (+
+# 		 (maybe-bar top 2 128)
+# 		 (maybe-bar mid 3  64)
+# 		 (maybe-bar bot 3  32)
+# 		 (maybe-bar bot 2  16)
+# 		 (maybe-bar bot 1   8)
+# 		 (maybe-bar mid 1   4)
+# 		 (maybe-bar mid 2   2)
+# 		 (maybe-bar bot 4   1)))
+#       (setq ch (aref top 0))
+#       (aset result ch hex)
+#       (if (not (equal ch (upcase ch)))
+#           (if (equal 0 (aref result (upcase ch)))
+#               (aset result (upcase ch) hex)))
+#       (setq top (substring top 5))
+#       (setq mid (substring mid 5))
+#       (setq bot (substring bot 5))))
+#   (setq i 0)
+#   ;; use [dcba01234]
+#   ;; 0000 - 0011
+#   (insert (format "%02x " (aref result ?0)))
+#   (insert (format "%02x " (aref result ?1)))
+#   (insert (format "%02x " (aref result ?A)))
+#   (insert (format "%02x " (aref result ?0)))
+#   ;; 0100 - 0111
+#   (insert (format "%02x " (aref result ?3)))
+#   (insert (format "%02x " (aref result ?4)))
+#   (insert (format "%02x " (aref result ?2)))
+#   (insert (format "%02x " (aref result ?3)))
+#   ;; 1000 - 1011
+#   (insert (format "%02x " (aref result ?C)))
+#   (insert (format "%02x " (aref result ?b)))
+#   (insert (format "%02x " (aref result ?d)))
+#   (insert (format "%02x " (aref result ?C)))
+#   ;; 1100 - 1111
+#   (insert (format "%02x " (aref result ?0)))
+#   (insert (format "%02x " (aref result ?1)))
+#   (insert (format "%02x " (aref result ?A)))
+#   (insert (format "%02x " (aref result ?0))))
+#
+# mixed case A b C d
+fc 60 ee fc
+f2 66 da f2
+9c 3e 7a 9c
+fc 60 ee fc 
+# lowercase a b c d
+# fc 60 fa fc
+# f2 66 da f2
+# 1a 3e 7a 1a
+# fc 60 fa fc 

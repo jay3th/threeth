@@ -1,0 +1,294 @@
+v2.0 raw
+# convert binary coded balanced trinary to binary
+# this will work for balanced trinary and unbalanced trinary
+# when used to generate addresses or paterns to store in memory.
+# The order will be wrong when given unbalanced trinary because
+# I am doing this for balanced, and storing excess 121
+# 10 = -1, 00 = 0, 01 = 1, 11 = 0
+#
+# 5 trits to 8 bits
+# (defun t-do-4 (i)
+#   (insert (format "%02x %02x %02x %02x\n" i (+ i 1) (- i 1) i)))
+# 
+# (defun t-do-16 (i)
+#   (t-do-4 (+  i 0))
+#   (t-do-4 (+  i 3))
+#   (t-do-4 (-  i 3))
+#   (t-do-4 (+  i 0)))
+# 
+# (defun t-do-64 (i)
+#   (t-do-16 (+ i 0))
+#   (t-do-16 (+ i 9))
+#   (t-do-16 (- i 9))
+#   (t-do-16 (+ i 0)))
+# 
+# (defun t-do-256 (i)
+#   (t-do-64 (+ i 0))
+#   (t-do-64 (+ i 27))
+#   (t-do-64 (- i 27))
+#   (t-do-64 (+ i 0)))
+# 
+# (defun t-do-1024 (i)
+#   (t-do-256 (+ i 0))
+#   (t-do-256 (+ i 81))
+#   (t-do-256 (- i 81))
+#   (t-do-256 (+ i 0)))
+# 
+# (t-do-1024 121)
+# 
+79 7a 78 79 # <-- address 0x00 to 0x03, see the 0x79 == 121?  I am storing
+7c 7d 7b 7c # the value of the 5 trit word + 121.
+76 77 75 76
+79 7a 78 79
+82 83 81 82
+85 86 84 85
+7f 80 7e 7f
+82 83 81 82
+70 71 6f 70
+73 74 72 73
+6d 6e 6c 6d
+70 71 6f 70
+79 7a 78 79
+7c 7d 7b 7c
+76 77 75 76
+79 7a 78 79
+94 95 93 94
+97 98 96 97
+91 92 90 91
+94 95 93 94
+9d 9e 9c 9d
+a0 a1 9f a0
+9a 9b 99 9a
+9d 9e 9c 9d
+8b 8c 8a 8b
+8e 8f 8d 8e
+88 89 87 88
+8b 8c 8a 8b
+94 95 93 94
+97 98 96 97
+91 92 90 91
+94 95 93 94
+5e 5f 5d 5e
+61 62 60 61
+5b 5c 5a 5b
+5e 5f 5d 5e
+67 68 66 67
+6a 6b 69 6a
+64 65 63 64
+67 68 66 67
+55 56 54 55
+58 59 57 58
+52 53 51 52
+55 56 54 55
+5e 5f 5d 5e
+61 62 60 61
+5b 5c 5a 5b
+5e 5f 5d 5e
+79 7a 78 79
+7c 7d 7b 7c
+76 77 75 76
+79 7a 78 79
+82 83 81 82
+85 86 84 85
+7f 80 7e 7f
+82 83 81 82
+70 71 6f 70
+73 74 72 73
+6d 6e 6c 6d
+70 71 6f 70
+79 7a 78 79
+7c 7d 7b 7c
+76 77 75 76
+79 7a 78 79
+ca cb c9 ca
+cd ce cc cd
+c7 c8 c6 c7
+ca cb c9 ca
+d3 d4 d2 d3
+d6 d7 d5 d6
+d0 d1 cf d0
+d3 d4 d2 d3
+c1 c2 c0 c1
+c4 c5 c3 c4
+be bf bd be
+c1 c2 c0 c1
+ca cb c9 ca
+cd ce cc cd
+c7 c8 c6 c7
+ca cb c9 ca
+e5 e6 e4 e5
+e8 e9 e7 e8
+e2 e3 e1 e2
+e5 e6 e4 e5
+ee ef ed ee
+f1 f2 f0 f1
+eb ec ea eb
+ee ef ed ee
+dc dd db dc
+df e0 de df
+d9 da d8 d9
+dc dd db dc
+e5 e6 e4 e5
+e8 e9 e7 e8
+e2 e3 e1 e2
+e5 e6 e4 e5
+af b0 ae af
+b2 b3 b1 b2
+ac ad ab ac
+af b0 ae af
+b8 b9 b7 b8
+bb bc ba bb
+b5 b6 b4 b5
+b8 b9 b7 b8
+a6 a7 a5 a6
+a9 aa a8 a9
+a3 a4 a2 a3
+a6 a7 a5 a6
+af b0 ae af
+b2 b3 b1 b2
+ac ad ab ac
+af b0 ae af
+ca cb c9 ca
+cd ce cc cd
+c7 c8 c6 c7
+ca cb c9 ca
+d3 d4 d2 d3
+d6 d7 d5 d6
+d0 d1 cf d0
+d3 d4 d2 d3
+c1 c2 c0 c1
+c4 c5 c3 c4
+be bf bd be
+c1 c2 c0 c1
+ca cb c9 ca
+cd ce cc cd
+c7 c8 c6 c7
+ca cb c9 ca
+28 29 27 28
+2b 2c 2a 2b
+25 26 24 25
+28 29 27 28
+31 32 30 31
+34 35 33 34
+2e 2f 2d 2e
+31 32 30 31
+1f 20 1e 1f
+22 23 21 22
+1c 1d 1b 1c
+1f 20 1e 1f
+28 29 27 28
+2b 2c 2a 2b
+25 26 24 25
+28 29 27 28
+43 44 42 43
+46 47 45 46
+40 41 3f 40
+43 44 42 43
+4c 4d 4b 4c
+4f 50 4e 4f
+49 4a 48 49
+4c 4d 4b 4c
+3a 3b 39 3a
+3d 3e 3c 3d
+37 38 36 37
+3a 3b 39 3a
+43 44 42 43
+46 47 45 46
+40 41 3f 40
+43 44 42 43
+0d 0e 0c 0d
+10 11 0f 10
+0a 0b 09 0a
+0d 0e 0c 0d
+16 17 15 16
+19 1a 18 19
+13 14 12 13
+16 17 15 16
+04 05 03 04
+07 08 06 07 # (format "%x" (* 170 4)) "2a8"
+01 02 00 01 # <-- here the binary addresses are 1010101000, 1010101001, 1010101010, 1010101011
+04 05 03 04 # Since 10 is BCT for -1, those are addresses for jjjj0, jjjj1, jjjjj, jjjj0
+0d 0e 0c 0d
+10 11 0f 10
+0a 0b 09 0a
+0d 0e 0c 0d
+28 29 27 28
+2b 2c 2a 2b
+25 26 24 25
+28 29 27 28
+31 32 30 31
+34 35 33 34
+2e 2f 2d 2e
+31 32 30 31
+1f 20 1e 1f
+22 23 21 22
+1c 1d 1b 1c
+1f 20 1e 1f
+28 29 27 28
+2b 2c 2a 2b
+25 26 24 25
+28 29 27 28
+79 7a 78 79
+7c 7d 7b 7c
+76 77 75 76
+79 7a 78 79
+82 83 81 82
+85 86 84 85
+7f 80 7e 7f
+82 83 81 82
+70 71 6f 70
+73 74 72 73
+6d 6e 6c 6d
+70 71 6f 70
+79 7a 78 79
+7c 7d 7b 7c
+76 77 75 76
+79 7a 78 79
+94 95 93 94
+97 98 96 97
+91 92 90 91
+94 95 93 94
+9d 9e 9c 9d
+a0 a1 9f a0
+9a 9b 99 9a
+9d 9e 9c 9d
+8b 8c 8a 8b
+8e 8f 8d 8e
+88 89 87 88
+8b 8c 8a 8b
+94 95 93 94
+97 98 96 97
+91 92 90 91
+94 95 93 94
+5e 5f 5d 5e
+61 62 60 61
+5b 5c 5a 5b
+5e 5f 5d 5e
+67 68 66 67
+6a 6b 69 6a
+64 65 63 64
+67 68 66 67
+55 56 54 55
+58 59 57 58
+52 53 51 52
+55 56 54 55
+5e 5f 5d 5e
+61 62 60 61
+5b 5c 5a 5b
+5e 5f 5d 5e
+79 7a 78 79
+7c 7d 7b 7c
+76 77 75 76
+79 7a 78 79
+82 83 81 82
+85 86 84 85
+7f 80 7e 7f
+82 83 81 82
+70 71 6f 70
+73 74 72 73
+6d 6e 6c 6d
+70 71 6f 70
+79 7a 78 79
+7c 7d 7b 7c
+76 77 75 76
+79 7a 78 79

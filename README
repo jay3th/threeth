@@ -1,0 +1,10 @@
+Randomish collection of design stuff about binary and trinary computer
+hardware design, mostly focused on multiple stack architectures.
+trinary -> three, multiple stacks == forth, hench threeth.  Maybe some
+crazy language design stuff too (forth + lisp + scheme + javascript +
+smalltalk + c + joy = j3).
+
+Every thing here is available with out notice under GPL 3.  Talk to me
+if you want some other rights.
+
+Jay  threeth@gismu.com

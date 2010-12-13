@@ -8,12 +8,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="halign" val="center"/>
       <a name="valign" val="top"/>
     </tool>
-    <tool name="Splitter">
-      <a name="incoming" val="4"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="1"/>
-      <a name="bit3" val="1"/>
-    </tool>
   </lib>
   <lib desc="#Gates" name="1"/>
   <lib desc="#Plexers" name="2"/>
@@ -38,7 +32,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="showhalo" val="true"/>
     <a name="showhalo" val="true"/>
     <a name="moveconnect" val="true"/>
-    <a name="zoom" val="1.33"/>
+    <a name="zoom" val="1.0"/>
     <a name="gateUndefined" val="ignore"/>
     <a name="simlimit" val="1000"/>
     <a name="simrand" val="0"/>
@@ -62,12 +56,13 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </tool>
     <sep/>
     <tool lib="0" name="Pin">
+      <a name="width" val="2"/>
       <a name="tristate" val="false"/>
     </tool>
     <tool lib="0" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="width" val="12"/>
+      <a name="width" val="2"/>
       <a name="labelloc" val="east"/>
     </tool>
     <tool lib="1" name="NOT Gate"/>
@@ -94,18 +89,59 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(200,500)" to="(510,500)"/>
     <wire from="(530,410)" to="(560,410)"/>
     <wire from="(560,340)" to="(680,340)"/>
-    <comp lib="0" loc="(496,235)" name="Text">
-      <a name="text" val="The high bit (Logisim is little endian, it is numbered 1) represents -1 often notated j"/>
-    </comp>
-    <comp lib="0" loc="(508,62)" name="Text">
-      <a name="text" val="Simple system for simulating trinary logic circuits."/>
-    </comp>
     <comp lib="0" loc="(465,572)" name="Text">
       <a name="text" val="gates are 'real' trinary gates.  If we could replace the"/>
       <a name="valign" val="top"/>
     </comp>
+    <comp lib="0" loc="(508,62)" name="Text">
+      <a name="text" val="Simple system for simulating trinary logic circuits."/>
+    </comp>
+    <comp lib="0" loc="(767,506)" name="Text">
+      <a name="text" val="-1 asserted high"/>
+    </comp>
+    <comp lib="0" loc="(316,350)" name="Text">
+      <a name="text" val="It is usefull for building (simulations of) trinary circuits"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(432,553)" name="Text">
+      <a name="text" val="Although the *wires* are simulations, the"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(465,594)" name="Text">
+      <a name="text" val="split/joins with weird D/A circuits, it would be all real."/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(273,329)" name="Text">
+      <a name="text" val="Its outputs are not (simulated) tri-level."/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="1" loc="(640,420)" name="OR Gate"/>
+    <comp lib="0" loc="(432,760)" name="Text">
+      <a name="text" val="This is all copyrighted, and licensed to you if you desire, under GPL 3 or later."/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(508,146)" name="Text">
+      <a name="text" val=" with a pair of wires carying two level signals."/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="2" loc="(510,440)" name="Decoder">
+      <a name="select" val="2"/>
+    </comp>
+    <comp lib="0" loc="(630,203)" name="Text">
+      <a name="text" val="00 is used to represent 0 often notated o"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(693,311)" name="Text">
+      <a name="text" val="Representation of +1 is on the pair of wires"/>
+    </comp>
     <comp lib="0" loc="(767,424)" name="Text">
       <a name="text" val="0 asserted high"/>
+    </comp>
+    <comp lib="0" loc="(511,137)" name="Text">
+      <a name="text" val="we simulate a single wire with 3 level signals"/>
+    </comp>
+    <comp lib="0" loc="(292,320)" name="Text">
+      <a name="text" val="This is *NOT* a valid (simulated) trinary circut."/>
     </comp>
     <comp lib="0" loc="(589,254)" name="Text">
       <a name="text" val="The low bit (numbered 0) represents +1 always notated 1"/>
@@ -114,92 +150,51 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="0" loc="(630,203)" name="Text">
-      <a name="text" val="00 is used to represent 0 often notated o"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(292,320)" name="Text">
-      <a name="text" val="This is *NOT* a valid (simulated) trinary circut."/>
-    </comp>
-    <comp lib="5" loc="(230,420)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(515,118)" name="Text">
-      <a name="text" val="The usual sort of implementation is used here,"/>
-    </comp>
-    <comp lib="0" loc="(767,506)" name="Text">
-      <a name="text" val="-1 asserted high"/>
-    </comp>
-    <comp lib="0" loc="(511,137)" name="Text">
-      <a name="text" val="we simulate a single wire with 3 level signals"/>
-    </comp>
-    <comp lib="0" loc="(680,340)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(432,553)" name="Text">
-      <a name="text" val="Although the *wires* are simulations, the"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(170,500)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(693,311)" name="Text">
-      <a name="text" val="Representation of +1 is on the pair of wires"/>
-    </comp>
-    <comp lib="0" loc="(465,594)" name="Text">
-      <a name="text" val="split/joins with weird D/A circuits, it would be all real."/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="1" loc="(640,420)" name="OR Gate"/>
-    <comp lib="0" loc="(509,276)" name="Text">
-      <a name="text" val="The value 11 is considered non-standard, many circuits will treat it as 00 though."/>
-    </comp>
-    <comp loc="(240,450)" name="tri-led-driver"/>
     <comp lib="0" loc="(440,646)" name="Text">
       <a name="text" val="Look at &quot;TNAND fast&quot; to see how the gates should be implemented in real hardware."/>
       <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(508,146)" name="Text">
-      <a name="text" val=" with a pair of wires carying two level signals."/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(432,760)" name="Text">
-      <a name="text" val="This is all copyrighted, and licensed to you if you desire, under GPL 3 or later."/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(316,350)" name="Text">
-      <a name="text" val="It is usefull for building (simulations of) trinary circuits"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(273,329)" name="Text">
-      <a name="text" val="Its outputs are not (simulated) tri-level."/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="2" loc="(510,440)" name="Decoder">
-      <a name="select" val="2"/>
-    </comp>
-    <comp lib="0" loc="(768,343)" name="Text">
-      <a name="text" val="+1 asserted high"/>
-    </comp>
-    <comp lib="5" loc="(240,450)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
     </comp>
     <comp lib="0" loc="(680,420)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="5" loc="(230,420)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(680,340)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(768,343)" name="Text">
+      <a name="text" val="+1 asserted high"/>
+    </comp>
     <comp lib="0" loc="(680,500)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
+    </comp>
+    <comp loc="(240,450)" name="tri-led-driver"/>
+    <comp lib="0" loc="(509,276)" name="Text">
+      <a name="text" val="The value 11 is considered non-standard, many circuits will treat it as 00 though."/>
+    </comp>
+    <comp lib="5" loc="(240,450)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(515,118)" name="Text">
+      <a name="text" val="The usual sort of implementation is used here,"/>
+    </comp>
+    <comp lib="0" loc="(170,500)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(496,235)" name="Text">
+      <a name="text" val="The high bit (Logisim is little endian, it is numbered 1) represents -1 often notated j"/>
     </comp>
   </circuit>
   <circuit name="Sampler (copy LEDs from here)">
@@ -230,9 +225,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(90,140)" to="(150,140)"/>
     <wire from="(110,480)" to="(110,570)"/>
     <wire from="(100,480)" to="(110,480)"/>
-    <wire from="(510,980)" to="(520,980)"/>
     <wire from="(450,980)" to="(460,980)"/>
     <wire from="(250,470)" to="(250,640)"/>
+    <wire from="(510,980)" to="(520,980)"/>
     <wire from="(610,540)" to="(630,540)"/>
     <wire from="(600,300)" to="(630,300)"/>
     <wire from="(510,980)" to="(510,1020)"/>
@@ -376,47 +371,113 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(240,430)" to="(250,430)"/>
     <wire from="(90,450)" to="(90,600)"/>
     <wire from="(440,380)" to="(530,380)"/>
-    <comp lib="0" loc="(110,390)" name="Splitter">
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="12"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="0"/>
-      <a name="bit4" val="1"/>
-      <a name="bit5" val="1"/>
-      <a name="bit6" val="1"/>
-      <a name="bit7" val="1"/>
-      <a name="bit8" val="2"/>
-      <a name="bit9" val="2"/>
-      <a name="bit10" val="2"/>
-      <a name="bit11" val="2"/>
-    </comp>
-    <comp lib="5" loc="(400,60)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(70,570)" name="Button">
-      <a name="label" val="A"/>
-    </comp>
-    <comp lib="5" loc="(510,170)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(240,410)" name="Splitter">
+    <comp lib="0" loc="(410,960)" name="Splitter">
       <a name="facing" val="south"/>
       <a name="incoming" val="4"/>
       <a name="bit1" val="0"/>
       <a name="bit2" val="1"/>
       <a name="bit3" val="1"/>
     </comp>
-    <comp loc="(410,90)" name="tri-led-driver"/>
-    <comp loc="(650,460)" name="tri-led-driver"/>
-    <comp lib="5" loc="(460,1050)" name="LED">
+    <comp loc="(780,300)" name="NTI Negative Trinary Inverter"/>
+    <comp loc="(780,620)" name="STI Simple Ternary Inverter"/>
+    <comp lib="5" loc="(200,500)" name="LED">
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(640,490)" name="LED">
+    <comp lib="5" loc="(320,440)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(820,490)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(600,380)" name="TNAND 3 input"/>
+    <comp lib="5" loc="(230,290)" name="7-Segment Display">
+      <a name="offcolor" val="#5c0607"/>
+      <a name="bg" val="#000000"/>
+    </comp>
+    <comp lib="5" loc="(210,470)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(490,880)" name="2t-to-7seg driver"/>
+    <comp lib="5" loc="(820,270)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(440,1020)" name="tri-led-driver"/>
+    <comp lib="5" loc="(460,990)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(830,620)" name="tri-led-driver"/>
+    <comp lib="5" loc="(130,570)" name="Button">
+      <a name="label" val="1"/>
+    </comp>
+    <comp lib="5" loc="(820,250)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(650,460)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(520,140)" name="tri-led-driver"/>
+    <comp lib="5" loc="(320,500)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(240,470)" name="tri-led-driver"/>
+    <comp lib="5" loc="(470,1020)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(260,330)" name="2t-to-7seg driver"/>
+    <comp lib="0" loc="(300,410)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="incoming" val="4"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
+    </comp>
+    <comp lib="5" loc="(300,470)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(830,380)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(820,350)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(830,380)" name="tri-led-driver"/>
+    <comp loc="(600,300)" name="CD Cycle Down"/>
+    <comp lib="5" loc="(100,540)" name="Button">
+      <a name="label" val="3"/>
+    </comp>
+    <comp loc="(560,1020)" name="tri-led-driver"/>
+    <comp lib="5" loc="(410,1020)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(250,910)" name="Splitter">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(530,1020)" name="tri-led-driver"/>
+    <comp lib="5" loc="(640,410)" name="LED">
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
@@ -425,202 +486,53 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(820,650)" name="LED">
-      <a name="facing" val="south"/>
+    <comp lib="5" loc="(640,350)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(230,500)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(440,1020)" name="tri-led-driver"/>
-    <comp loc="(650,620)" name="tri-led-driver"/>
-    <comp loc="(270,90)" name="D-Latch (level triggered)"/>
-    <comp loc="(830,380)" name="tri-led-driver"/>
+    <comp loc="(410,90)" name="tri-led-driver"/>
     <comp lib="5" loc="(830,540)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(560,1020)" name="LED">
+    <comp lib="5" loc="(830,220)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(230,290)" name="7-Segment Display">
+    <comp lib="5" loc="(290,290)" name="7-Segment Display">
       <a name="offcolor" val="#5c0607"/>
       <a name="bg" val="#000000"/>
     </comp>
-    <comp lib="5" loc="(820,510)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(650,300)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(320,500)" name="LED">
+    <comp lib="5" loc="(640,490)" name="LED">
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp loc="(780,380)" name="STI Simple Ternary Inverter"/>
-    <comp lib="5" loc="(170,440)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
+    <comp loc="(470,1020)" name="tri-led-driver"/>
+    <comp lib="5" loc="(230,500)" name="LED">
+      <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp loc="(830,620)" name="tri-led-driver"/>
-    <comp loc="(520,140)" name="tri-led-driver"/>
-    <comp lib="5" loc="(640,590)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(370,590)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
+    <comp lib="5" loc="(70,600)" name="Button">
+      <a name="label" val="D"/>
     </comp>
     <comp lib="5" loc="(360,560)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(500,1020)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(110,430)" name="keyboard input"/>
-    <comp loc="(600,220)" name="CU Cycle Up"/>
-    <comp loc="(550,880)" name="2t-to-7seg driver"/>
-    <comp lib="5" loc="(640,190)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(640,270)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(210,470)" name="tri-led-driver"/>
-    <comp lib="5" loc="(70,600)" name="Button">
-      <a name="label" val="D"/>
-    </comp>
-    <comp loc="(780,540)" name="STI Simple Ternary Inverter"/>
-    <comp loc="(600,460)" name="TNOR 3 input"/>
-    <comp loc="(320,330)" name="2t-to-7seg driver"/>
-    <comp lib="5" loc="(640,430)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(330,470)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(600,300)" name="CD Cycle Down"/>
-    <comp lib="5" loc="(520,840)" name="7-Segment Display">
-      <a name="offcolor" val="#5c0607"/>
-      <a name="bg" val="#000000"/>
-    </comp>
-    <comp loc="(600,620)" name="TNAND 3 input"/>
-    <comp loc="(830,220)" name="tri-led-driver"/>
-    <comp lib="0" loc="(220,900)" name="Clock"/>
-    <comp lib="5" loc="(640,330)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(820,590)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(640,570)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(300,470)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(250,910)" name="Splitter">
+    <comp loc="(650,620)" name="tri-led-driver"/>
+    <comp lib="0" loc="(170,140)" name="Splitter">
       <a name="facing" val="west"/>
     </comp>
-    <comp loc="(780,300)" name="NTI Negative Trinary Inverter"/>
-    <comp loc="(650,220)" name="tri-led-driver"/>
-    <comp lib="5" loc="(290,290)" name="7-Segment Display">
+    <comp lib="1" loc="(90,140)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="5" loc="(400,840)" name="7-Segment Display">
       <a name="offcolor" val="#5c0607"/>
       <a name="bg" val="#000000"/>
-    </comp>
-    <comp lib="5" loc="(290,440)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(470,960)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="incoming" val="4"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="1"/>
-      <a name="bit3" val="1"/>
-    </comp>
-    <comp lib="5" loc="(210,470)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(400,990)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(120,130)" name="Button"/>
-    <comp loc="(780,460)" name="PTI Positive Trinary Inverter"/>
-    <comp lib="5" loc="(180,470)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(260,330)" name="2t-to-7seg driver"/>
-    <comp loc="(490,880)" name="2t-to-7seg driver"/>
-    <comp lib="5" loc="(100,600)" name="Button">
-      <a name="label" val="C"/>
-    </comp>
-    <comp lib="5" loc="(260,440)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(270,470)" name="tri-led-driver"/>
-    <comp lib="0" loc="(180,410)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="incoming" val="4"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="1"/>
-      <a name="bit3" val="1"/>
-    </comp>
-    <comp lib="0" loc="(300,410)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="incoming" val="4"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="1"/>
-      <a name="bit3" val="1"/>
-    </comp>
-    <comp loc="(330,470)" name="tri-led-driver"/>
-    <comp loc="(180,470)" name="tri-led-driver"/>
-    <comp lib="5" loc="(130,540)" name="Button">
-      <a name="label" val="4"/>
-    </comp>
-    <comp lib="5" loc="(830,460)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
     </comp>
     <comp lib="0" loc="(340,940)" name="Splitter">
       <a name="fanout" val="3"/>
@@ -637,12 +549,98 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit10" val="2"/>
       <a name="bit11" val="2"/>
     </comp>
-    <comp lib="5" loc="(460,840)" name="7-Segment Display">
+    <comp lib="5" loc="(640,250)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(830,460)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(170,500)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(830,300)" name="tri-led-driver"/>
+    <comp lib="5" loc="(400,60)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(310,90)" name="tri-led-driver"/>
+    <comp lib="0" loc="(180,410)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="incoming" val="4"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
+    </comp>
+    <comp lib="5" loc="(650,220)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(100,570)" name="Button">
+      <a name="label" val="0"/>
+    </comp>
+    <comp loc="(830,540)" name="tri-led-driver"/>
+    <comp lib="5" loc="(170,290)" name="7-Segment Display">
       <a name="offcolor" val="#5c0607"/>
       <a name="bg" val="#000000"/>
     </comp>
+    <comp loc="(780,540)" name="STI Simple Ternary Inverter"/>
+    <comp loc="(650,380)" name="tri-led-driver"/>
+    <comp lib="5" loc="(130,600)" name="Button">
+      <a name="label" val="B"/>
+    </comp>
+    <comp loc="(650,220)" name="tri-led-driver"/>
+    <comp lib="5" loc="(550,1050)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(500,1020)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
     <comp lib="5" loc="(400,1050)" name="LED">
       <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(270,470)" name="tri-led-driver"/>
+    <comp lib="0" loc="(220,900)" name="Clock"/>
+    <comp lib="5" loc="(510,170)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(600,220)" name="CU Cycle Up"/>
+    <comp lib="5" loc="(330,470)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(520,840)" name="7-Segment Display">
+      <a name="offcolor" val="#5c0607"/>
+      <a name="bg" val="#000000"/>
+    </comp>
+    <comp lib="5" loc="(650,300)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(650,460)" name="tri-led-driver"/>
+    <comp lib="5" loc="(430,1050)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(130,540)" name="Button">
+      <a name="label" val="4"/>
+    </comp>
+    <comp loc="(410,1020)" name="tri-led-driver"/>
+    <comp lib="5" loc="(560,1020)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
     <comp lib="5" loc="(430,990)" name="LED">
@@ -650,32 +648,39 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp loc="(370,90)" name="Register (master-slave D-latch)"/>
-    <comp lib="5" loc="(640,350)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
+    <comp loc="(830,220)" name="tri-led-driver"/>
+    <comp lib="5" loc="(100,600)" name="Button">
+      <a name="label" val="C"/>
     </comp>
-    <comp lib="5" loc="(230,440)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
+    <comp loc="(330,470)" name="tri-led-driver"/>
+    <comp loc="(600,460)" name="TNOR 3 input"/>
+    <comp lib="0" loc="(240,410)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="incoming" val="4"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
     </comp>
-    <comp lib="5" loc="(650,540)" name="LED">
+    <comp loc="(650,540)" name="tri-led-driver"/>
+    <comp lib="5" loc="(310,90)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(820,410)" name="LED">
+    <comp lib="5" loc="(270,470)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(820,650)" name="LED">
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(820,270)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
+    <comp lib="5" loc="(360,620)" name="LED">
+      <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(650,380)" name="LED">
+    <comp lib="5" loc="(650,540)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
@@ -688,171 +693,56 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="1" loc="(190,950)" name="Constant">
       <a name="value" val="0x0"/>
     </comp>
-    <comp loc="(830,300)" name="tri-led-driver"/>
-    <comp lib="5" loc="(550,990)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(530,1020)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(820,490)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(830,540)" name="tri-led-driver"/>
-    <comp lib="1" loc="(190,910)" name="Constant">
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(410,960)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="incoming" val="4"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="1"/>
-      <a name="bit3" val="1"/>
-    </comp>
-    <comp lib="5" loc="(640,510)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(100,570)" name="Button">
-      <a name="label" val="0"/>
-    </comp>
-    <comp loc="(290,940)" name="6t counter"/>
-    <comp lib="5" loc="(640,650)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(820,190)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(400,840)" name="7-Segment Display">
-      <a name="offcolor" val="#5c0607"/>
-      <a name="bg" val="#000000"/>
-    </comp>
-    <comp lib="5" loc="(470,1020)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(240,470)" name="tri-led-driver"/>
-    <comp lib="5" loc="(820,350)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(360,620)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(510,110)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(170,290)" name="7-Segment Display">
-      <a name="offcolor" val="#5c0607"/>
-      <a name="bg" val="#000000"/>
-    </comp>
-    <comp loc="(600,380)" name="TNAND 3 input"/>
-    <comp lib="5" loc="(650,620)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(520,1050)" name="LED">
+    <comp loc="(300,470)" name="tri-led-driver"/>
+    <comp lib="5" loc="(460,1050)" name="LED">
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
     <comp loc="(200,330)" name="2t-to-7seg driver"/>
-    <comp loc="(780,620)" name="STI Simple Ternary Inverter"/>
-    <comp lib="1" loc="(90,140)" name="Constant">
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="5" loc="(130,600)" name="Button">
-      <a name="label" val="B"/>
-    </comp>
-    <comp lib="5" loc="(830,220)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(430,1050)" name="LED">
+    <comp lib="5" loc="(300,120)" name="LED">
       <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(830,380)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(300,60)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
     <comp lib="0" loc="(250,950)" name="Splitter">
       <a name="facing" val="west"/>
     </comp>
-    <comp lib="5" loc="(100,540)" name="Button">
-      <a name="label" val="3"/>
-    </comp>
-    <comp lib="5" loc="(820,250)" name="LED">
+    <comp lib="5" loc="(640,650)" name="LED">
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(820,330)" name="LED">
-      <a name="facing" val="south"/>
+    <comp loc="(780,380)" name="STI Simple Ternary Inverter"/>
+    <comp lib="5" loc="(180,470)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(320,440)" name="LED">
+    <comp lib="5" loc="(550,990)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(550,1050)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(520,140)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(410,1020)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(240,470)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(470,1020)" name="tri-led-driver"/>
-    <comp lib="5" loc="(820,570)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(650,460)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(460,990)" name="LED">
+    <comp lib="5" loc="(640,590)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(270,470)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
+    <comp lib="5" loc="(290,500)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(780,460)" name="PTI Positive Trinary Inverter"/>
+    <comp lib="5" loc="(400,120)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(430,880)" name="2t-to-7seg driver"/>
+    <comp lib="5" loc="(260,500)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(180,470)" name="tri-led-driver"/>
+    <comp lib="5" loc="(820,410)" name="LED">
+      <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
     <comp lib="5" loc="(830,620)" name="LED">
@@ -860,41 +750,95 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(130,570)" name="Button">
-      <a name="label" val="1"/>
-    </comp>
-    <comp loc="(830,460)" name="tri-led-driver"/>
-    <comp lib="0" loc="(530,960)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="incoming" val="4"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="1"/>
-      <a name="bit3" val="1"/>
-    </comp>
-    <comp lib="5" loc="(640,410)" name="LED">
-      <a name="facing" val="south"/>
+    <comp lib="5" loc="(440,1020)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp loc="(560,1020)" name="tri-led-driver"/>
-    <comp loc="(430,880)" name="2t-to-7seg driver"/>
+    <comp lib="0" loc="(110,390)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="12"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="0"/>
+      <a name="bit4" val="1"/>
+      <a name="bit5" val="1"/>
+      <a name="bit6" val="1"/>
+      <a name="bit7" val="1"/>
+      <a name="bit8" val="2"/>
+      <a name="bit9" val="2"/>
+      <a name="bit10" val="2"/>
+      <a name="bit11" val="2"/>
+    </comp>
     <comp lib="5" loc="(410,90)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(400,120)" name="LED">
+    <comp lib="5" loc="(370,590)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(640,270)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(640,330)" name="LED">
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(70,540)" name="Button">
-      <a name="label" val="2"/>
+    <comp lib="5" loc="(290,440)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
     </comp>
+    <comp lib="5" loc="(170,440)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(490,1050)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(820,330)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(70,570)" name="Button">
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="5" loc="(120,130)" name="Button"/>
+    <comp lib="5" loc="(820,590)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(90,290)" name="7-Segment Display">
+      <a name="offcolor" val="#5c0607"/>
+      <a name="bg" val="#000000"/>
+    </comp>
+    <comp loc="(370,590)" name="tri-led-driver"/>
+    <comp lib="5" loc="(300,60)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(650,300)" name="tri-led-driver"/>
+    <comp loc="(320,330)" name="2t-to-7seg driver"/>
     <comp lib="5" loc="(820,430)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(520,990)" name="LED">
+    <comp lib="5" loc="(640,190)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(640,510)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
@@ -902,67 +846,118 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(220,940)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="5" loc="(170,500)" name="LED">
+    <comp lib="5" loc="(230,440)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(600,540)" name="TNOR 3 input"/>
+    <comp lib="5" loc="(520,1050)" name="LED">
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
+    <comp lib="5" loc="(640,570)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(260,440)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(470,960)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="incoming" val="4"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
+    </comp>
+    <comp lib="5" loc="(240,470)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(370,90)" name="Register (master-slave D-latch)"/>
+    <comp lib="5" loc="(460,840)" name="7-Segment Display">
+      <a name="offcolor" val="#5c0607"/>
+      <a name="bg" val="#000000"/>
+    </comp>
+    <comp loc="(110,430)" name="keyboard input"/>
+    <comp lib="5" loc="(70,540)" name="Button">
+      <a name="label" val="2"/>
+    </comp>
+    <comp lib="5" loc="(530,1020)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(830,460)" name="tri-led-driver"/>
     <comp lib="5" loc="(830,300)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(90,290)" name="7-Segment Display">
-      <a name="offcolor" val="#5c0607"/>
-      <a name="bg" val="#000000"/>
+    <comp lib="1" loc="(190,910)" name="Constant">
+      <a name="value" val="0x0"/>
     </comp>
-    <comp loc="(530,1020)" name="tri-led-driver"/>
-    <comp loc="(600,540)" name="TNOR 3 input"/>
-    <comp lib="5" loc="(640,250)" name="LED">
+    <comp lib="5" loc="(520,990)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(510,110)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(820,570)" name="LED">
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(310,90)" name="LED">
+    <comp lib="5" loc="(640,430)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(530,960)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="incoming" val="4"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
+    </comp>
+    <comp loc="(210,470)" name="tri-led-driver"/>
+    <comp lib="5" loc="(650,380)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(490,1050)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(650,220)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(650,540)" name="tri-led-driver"/>
-    <comp lib="0" loc="(170,140)" name="Splitter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(300,470)" name="tri-led-driver"/>
-    <comp lib="5" loc="(290,500)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(310,90)" name="tri-led-driver"/>
-    <comp loc="(410,1020)" name="tri-led-driver"/>
-    <comp loc="(370,590)" name="tri-led-driver"/>
-    <comp lib="5" loc="(300,120)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(650,300)" name="tri-led-driver"/>
-    <comp lib="5" loc="(200,500)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(260,500)" name="LED">
-      <a name="facing" val="south"/>
+    <comp lib="5" loc="(400,990)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
     <comp loc="(500,1020)" name="tri-led-driver"/>
-    <comp loc="(650,380)" name="tri-led-driver"/>
-    <comp lib="5" loc="(440,1020)" name="LED">
+    <comp loc="(600,620)" name="TNAND 3 input"/>
+    <comp loc="(270,90)" name="D-Latch (level triggered)"/>
+    <comp lib="5" loc="(820,190)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(650,620)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(820,510)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(290,940)" name="6t counter"/>
+    <comp loc="(550,880)" name="2t-to-7seg driver"/>
+    <comp lib="5" loc="(520,140)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
@@ -985,18 +980,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(470,330)" to="(480,330)"/>
     <wire from="(390,330)" to="(400,330)"/>
     <wire from="(420,330)" to="(450,330)"/>
-    <comp lib="0" loc="(400,330)" name="Splitter"/>
-    <comp lib="0" loc="(438,366)" name="Text">
-      <a name="text" val="Shocking?  Click the two split/joins the wires are crossed."/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(480,330)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="2"/>
-      <a name="label" val="(jo1)-&gt;(1oj)"/>
-      <a name="labelloc" val="east"/>
-    </comp>
     <comp lib="0" loc="(470,330)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="bit0" val="1"/>
@@ -1005,6 +988,18 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(390,330)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(438,366)" name="Text">
+      <a name="text" val="Shocking?  Click the two split/joins the wires are crossed."/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(400,330)" name="Splitter"/>
+    <comp lib="0" loc="(480,330)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="label" val="(jo1)-&gt;(1oj)"/>
+      <a name="labelloc" val="east"/>
     </comp>
   </circuit>
   <circuit name="PTI Positive Trinary Inverter">
@@ -1033,6 +1028,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(660,380)" to="(660,410)"/>
     <wire from="(520,410)" to="(590,410)"/>
     <wire from="(560,380)" to="(660,380)"/>
+    <comp lib="1" loc="(640,420)" name="OR Gate"/>
+    <comp lib="2" loc="(500,440)" name="Decoder">
+      <a name="select" val="2"/>
+    </comp>
     <comp lib="0" loc="(460,450)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
@@ -1044,10 +1043,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="(jo1)-&gt;(1jj)"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="2" loc="(500,440)" name="Decoder">
-      <a name="select" val="2"/>
-    </comp>
-    <comp lib="1" loc="(640,420)" name="OR Gate"/>
     <comp lib="0" loc="(680,420)" name="Splitter">
       <a name="facing" val="west"/>
     </comp>
@@ -1078,12 +1073,16 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(410,380)" to="(410,430)"/>
     <wire from="(390,370)" to="(430,370)"/>
     <wire from="(330,420)" to="(370,420)"/>
-    <comp lib="2" loc="(370,410)" name="Decoder">
-      <a name="select" val="2"/>
+    <comp lib="0" loc="(330,420)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
     </comp>
-    <comp lib="1" loc="(480,390)" name="OR Gate"/>
     <comp lib="0" loc="(520,400)" name="Splitter">
       <a name="facing" val="west"/>
+    </comp>
+    <comp lib="1" loc="(480,390)" name="OR Gate"/>
+    <comp lib="2" loc="(370,410)" name="Decoder">
+      <a name="select" val="2"/>
     </comp>
     <comp lib="0" loc="(540,400)" name="Pin">
       <a name="facing" val="west"/>
@@ -1091,10 +1090,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="2"/>
       <a name="label" val="(jo1)-&gt;(11j)"/>
       <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(330,420)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
     </comp>
   </circuit>
   <circuit name="CU Cycle Up">
@@ -1113,26 +1108,18 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <circ-port height="10" pin="560,330" width="10" x="85" y="65"/>
       <circ-anchor facing="east" height="6" width="6" x="87" y="67"/>
     </appear>
+    <wire from="(490,320)" to="(530,320)"/>
+    <wire from="(380,300)" to="(440,300)"/>
     <wire from="(310,360)" to="(360,360)"/>
+    <wire from="(550,330)" to="(560,330)"/>
+    <wire from="(420,360)" to="(510,360)"/>
     <wire from="(360,340)" to="(360,360)"/>
+    <wire from="(380,310)" to="(420,310)"/>
     <wire from="(380,330)" to="(440,330)"/>
     <wire from="(510,330)" to="(530,330)"/>
     <wire from="(380,320)" to="(400,320)"/>
-    <wire from="(490,320)" to="(530,320)"/>
-    <wire from="(380,300)" to="(440,300)"/>
-    <wire from="(550,330)" to="(560,330)"/>
-    <wire from="(420,360)" to="(510,360)"/>
-    <wire from="(380,310)" to="(420,310)"/>
     <wire from="(510,330)" to="(510,360)"/>
     <wire from="(420,310)" to="(420,360)"/>
-    <comp lib="2" loc="(360,340)" name="Decoder">
-      <a name="select" val="2"/>
-    </comp>
-    <comp lib="0" loc="(310,360)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="1" loc="(490,320)" name="OR Gate"/>
     <comp lib="0" loc="(550,330)" name="Splitter">
       <a name="facing" val="west"/>
     </comp>
@@ -1142,6 +1129,14 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="2"/>
       <a name="label" val="(jo1)-&gt;(o1j)"/>
       <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="2" loc="(360,340)" name="Decoder">
+      <a name="select" val="2"/>
+    </comp>
+    <comp lib="1" loc="(490,320)" name="OR Gate"/>
+    <comp lib="0" loc="(310,360)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
     </comp>
   </circuit>
   <circuit name="CD Cycle Down">
@@ -1170,11 +1165,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(380,350)" to="(380,360)"/>
     <wire from="(440,290)" to="(440,330)"/>
     <wire from="(400,320)" to="(420,320)"/>
-    <comp lib="2" loc="(380,350)" name="Decoder">
-      <a name="select" val="2"/>
-    </comp>
     <comp lib="0" loc="(540,330)" name="Splitter">
       <a name="facing" val="west"/>
+    </comp>
+    <comp lib="2" loc="(380,350)" name="Decoder">
+      <a name="select" val="2"/>
     </comp>
     <comp lib="0" loc="(550,330)" name="Pin">
       <a name="facing" val="west"/>
@@ -1258,9 +1253,23 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="2" loc="(270,560)" name="Decoder">
       <a name="select" val="2"/>
     </comp>
+    <comp lib="0" loc="(763,210)" name="Text">
+      <a name="text" val="If all inputs are 1, TNAND is -1"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(910,430)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="labelloc" val="east"/>
+    </comp>
     <comp lib="0" loc="(497,116)" name="Text">
       <a name="text" val="Decoders aren't required,"/>
       <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(200,620)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
     </comp>
     <comp lib="0" loc="(200,220)" name="Pin">
       <a name="width" val="2"/>
@@ -1270,46 +1279,128 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="text" val="Treat 11 as 00"/>
       <a name="valign" val="top"/>
     </comp>
-    <comp lib="1" loc="(740,420)" name="OR Gate"/>
-    <comp lib="0" loc="(494,135)" name="Text">
-      <a name="text" val="But they make the circuit"/>
+    <comp lib="0" loc="(743,550)" name="Text">
+      <a name="text" val="Otherwise, TNAND is 0"/>
       <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(200,620)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(200,420)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
     </comp>
     <comp lib="2" loc="(270,360)" name="Decoder">
       <a name="select" val="2"/>
     </comp>
-    <comp lib="1" loc="(740,260)" name="AND Gate"/>
-    <comp lib="0" loc="(762,458)" name="Text">
-      <a name="text" val="If any input is -1, TNAND is 1"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(910,430)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="2"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(763,210)" name="Text">
-      <a name="text" val="If all inputs are 1, TNAND is -1"/>
+    <comp lib="0" loc="(494,135)" name="Text">
+      <a name="text" val="But they make the circuit"/>
       <a name="valign" val="top"/>
     </comp>
     <comp lib="2" loc="(270,160)" name="Decoder">
       <a name="select" val="2"/>
     </comp>
-    <comp lib="0" loc="(743,550)" name="Text">
-      <a name="text" val="Otherwise, TNAND is 0"/>
+    <comp lib="0" loc="(762,458)" name="Text">
+      <a name="text" val="If any input is -1, TNAND is 1"/>
       <a name="valign" val="top"/>
+    </comp>
+    <comp lib="1" loc="(740,260)" name="AND Gate"/>
+    <comp lib="0" loc="(200,420)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
     </comp>
     <comp lib="0" loc="(870,430)" name="Splitter">
       <a name="facing" val="west"/>
+    </comp>
+    <comp lib="1" loc="(740,420)" name="OR Gate"/>
+  </circuit>
+  <circuit name="TNAND fast, 3 input, unsafe">
+    <a name="circuit" val="TNAND fast, 3 input, unsafe"/>
+    <a name="label" val=""/>
+    <a name="labelup" val="east"/>
+    <a name="labelfont" val="SansSerif plain 12"/>
+    <appear>
+      <polyline fill="none" points="50,44 50,94" stroke="#000000" stroke-width="2"/>
+      <polyline fill="none" points="79,90 57,90" stroke="#870007"/>
+      <ellipse cx="115.0" cy="70.0" fill="none" rx="5.0" ry="5.0" stroke="#000000" stroke-width="2"/>
+      <polyline fill="none" points="50,44 75,44" stroke="#000000" stroke-width="2"/>
+      <path d="M80,50 Q104,51 105,69" fill="none" stroke="#870007"/>
+      <polyline fill="none" points="56,51 56,90" stroke="#870007"/>
+      <polyline fill="none" points="79,50 56,50" stroke="#870007"/>
+      <polyline fill="none" points="50,95 75,95" stroke="#000000" stroke-width="2"/>
+      <path d="M77,44 Q110,43 110,70" fill="none" stroke="#000000" stroke-width="2"/>
+      <path d="M76,95 Q110,95 110,70" fill="none" stroke="#000000" stroke-width="2"/>
+      <path d="M80,90 Q105,89 105,70" fill="none" stroke="#870007"/>
+      <circ-port height="8" pin="190,290" width="8" x="46" y="46"/>
+      <circ-port height="8" pin="190,340" width="8" x="46" y="66"/>
+      <circ-port height="8" pin="190,390" width="8" x="46" y="86"/>
+      <circ-port height="10" pin="620,420" width="10" x="115" y="65"/>
+      <circ-anchor facing="east" height="6" width="6" x="117" y="67"/>
+    </appear>
+    <wire from="(550,420)" to="(580,420)"/>
+    <wire from="(230,380)" to="(270,380)"/>
+    <wire from="(230,290)" to="(310,290)"/>
+    <wire from="(230,390)" to="(270,390)"/>
+    <wire from="(190,390)" to="(210,390)"/>
+    <wire from="(270,430)" to="(450,430)"/>
+    <wire from="(270,390)" to="(270,430)"/>
+    <wire from="(230,330)" to="(290,330)"/>
+    <wire from="(190,340)" to="(210,340)"/>
+    <wire from="(310,290)" to="(310,390)"/>
+    <wire from="(600,420)" to="(620,420)"/>
+    <wire from="(550,230)" to="(550,420)"/>
+    <wire from="(290,410)" to="(450,410)"/>
+    <wire from="(270,210)" to="(270,380)"/>
+    <wire from="(500,230)" to="(550,230)"/>
+    <wire from="(270,210)" to="(450,210)"/>
+    <wire from="(290,230)" to="(290,330)"/>
+    <wire from="(310,250)" to="(450,250)"/>
+    <wire from="(500,410)" to="(580,410)"/>
+    <wire from="(290,230)" to="(450,230)"/>
+    <wire from="(310,390)" to="(450,390)"/>
+    <wire from="(230,340)" to="(290,340)"/>
+    <wire from="(230,280)" to="(310,280)"/>
+    <wire from="(190,290)" to="(210,290)"/>
+    <wire from="(290,340)" to="(290,410)"/>
+    <wire from="(310,250)" to="(310,280)"/>
+    <comp lib="1" loc="(500,230)" name="AND Gate">
+      <a name="inputs" val="3"/>
+    </comp>
+    <comp lib="0" loc="(620,420)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(441,478)" name="Text">
+      <a name="text" val="Otherwise, TNAND is 0"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(220,106)" name="Text">
+      <a name="text" val="See notes on TNAND fast, 2 input"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(210,390)" name="Splitter"/>
+    <comp lib="0" loc="(440,350)" name="Text">
+      <a name="text" val="If any input is -1, TNAND is 1"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(448,181)" name="Text">
+      <a name="text" val="If all inputs are 1, TNAND is -1"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(190,290)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(190,390)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(190,340)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(600,420)" name="Splitter">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(210,340)" name="Splitter"/>
+    <comp lib="0" loc="(210,290)" name="Splitter"/>
+    <comp lib="1" loc="(500,410)" name="OR Gate">
+      <a name="inputs" val="3"/>
     </comp>
   </circuit>
   <circuit name="TNAND fast, 2 input, unsafe">
@@ -1353,65 +1444,65 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(790,260)" to="(790,450)"/>
     <wire from="(270,340)" to="(340,340)"/>
     <wire from="(740,440)" to="(850,440)"/>
-    <comp lib="0" loc="(289,571)" name="Text">
-      <a name="text" val="the decoders around turning 11 into 00 is safer, hides bugs."/>
+    <comp lib="0" loc="(307,547)" name="Text">
+      <a name="text" val="this in real hardware I probably would.  But I'm lazy, and having the"/>
       <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(870,450)" name="Splitter">
-      <a name="facing" val="west"/>
     </comp>
     <comp lib="1" loc="(740,260)" name="AND Gate">
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(309,178)" name="Text">
-      <a name="text" val="To see the bug, try the inputs 00 and 11; result should be 00.  It is 01."/>
+    <comp lib="0" loc="(680,380)" name="Text">
+      <a name="text" val="If any input is -1, TNAND is 1"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(277,143)" name="Text">
+      <a name="text" val="This circuit will simulate faster.  It is unsafe in the sense that"/>
       <a name="valign" val="top"/>
     </comp>
     <comp lib="0" loc="(180,340)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(674,522)" name="Text">
-      <a name="text" val="Otherwise, TNAND is 0"/>
+    <comp lib="0" loc="(305,524)" name="Text">
+      <a name="text" val="This is probably the right way to implement all the gates, and if I did"/>
       <a name="valign" val="top"/>
     </comp>
     <comp lib="0" loc="(180,400)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(250,400)" name="Splitter"/>
+    <comp lib="0" loc="(309,178)" name="Text">
+      <a name="text" val="To see the bug, try the inputs 00 and 11; result should be 00.  It is 01."/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(289,571)" name="Text">
+      <a name="text" val="the decoders around turning 11 into 00 is safer, hides bugs."/>
+      <a name="valign" val="top"/>
+    </comp>
     <comp lib="0" loc="(910,450)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="2"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(307,547)" name="Text">
-      <a name="text" val="this in real hardware I probably would.  But I'm lazy, and having the"/>
-      <a name="valign" val="top"/>
-    </comp>
     <comp lib="0" loc="(688,211)" name="Text">
       <a name="text" val="If all inputs are 1, TNAND is -1"/>
       <a name="valign" val="top"/>
     </comp>
-    <comp lib="0" loc="(305,524)" name="Text">
-      <a name="text" val="This is probably the right way to implement all the gates, and if I did"/>
+    <comp lib="0" loc="(250,340)" name="Splitter"/>
+    <comp lib="0" loc="(250,400)" name="Splitter"/>
+    <comp lib="0" loc="(675,523)" name="Text">
+      <a name="text" val="Otherwise, TNAND is 0"/>
       <a name="valign" val="top"/>
     </comp>
-    <comp lib="0" loc="(250,340)" name="Splitter"/>
-    <comp lib="0" loc="(277,143)" name="Text">
-      <a name="text" val="This circuit will simulate faster.  It is unsafe in the sense that"/>
-      <a name="valign" val="top"/>
+    <comp lib="0" loc="(870,450)" name="Splitter">
+      <a name="facing" val="west"/>
     </comp>
     <comp lib="1" loc="(740,440)" name="OR Gate">
       <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(288,161)" name="Text">
       <a name="text" val="It treats 11 input as *both* 1 and -1, and generates bad output"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(680,380)" name="Text">
-      <a name="text" val="If any input is -1, TNAND is 1"/>
       <a name="valign" val="top"/>
     </comp>
   </circuit>
@@ -1477,34 +1568,19 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(200,620)" to="(270,620)"/>
     <wire from="(290,150)" to="(380,150)"/>
     <wire from="(340,260)" to="(340,330)"/>
-    <comp lib="0" loc="(200,420)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="2" loc="(270,560)" name="Decoder">
-      <a name="select" val="2"/>
-    </comp>
-    <comp lib="0" loc="(870,430)" name="Splitter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="0" loc="(200,620)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(200,220)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
     <comp lib="0" loc="(763,212)" name="Text">
       <a name="text" val="If any input is 1, TNOR is -1"/>
       <a name="valign" val="top"/>
     </comp>
-    <comp lib="2" loc="(270,160)" name="Decoder">
+    <comp lib="2" loc="(270,360)" name="Decoder">
       <a name="select" val="2"/>
     </comp>
-    <comp lib="0" loc="(497,116)" name="Text">
-      <a name="text" val="Decoders aren't required,"/>
-      <a name="valign" val="top"/>
+    <comp lib="2" loc="(270,560)" name="Decoder">
+      <a name="select" val="2"/>
+    </comp>
+    <comp lib="1" loc="(740,420)" name="AND Gate"/>
+    <comp lib="0" loc="(870,430)" name="Splitter">
+      <a name="facing" val="west"/>
     </comp>
     <comp lib="1" loc="(740,260)" name="OR Gate"/>
     <comp lib="0" loc="(910,430)" name="Pin">
@@ -1513,25 +1589,119 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="2"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(742,552)" name="Text">
-      <a name="text" val="Otherwise, TNOR is 0"/>
-      <a name="valign" val="top"/>
+    <comp lib="0" loc="(200,420)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(762,460)" name="Text">
-      <a name="text" val="If all inputs are -1, TNOR is 1"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="1" loc="(740,420)" name="AND Gate"/>
-    <comp lib="2" loc="(270,360)" name="Decoder">
+    <comp lib="2" loc="(270,160)" name="Decoder">
       <a name="select" val="2"/>
     </comp>
     <comp lib="0" loc="(494,135)" name="Text">
       <a name="text" val="But they make the circuit"/>
       <a name="valign" val="top"/>
     </comp>
+    <comp lib="0" loc="(200,220)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(200,620)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(762,460)" name="Text">
+      <a name="text" val="If all inputs are -1, TNOR is 1"/>
+      <a name="valign" val="top"/>
+    </comp>
     <comp lib="0" loc="(463,155)" name="Text">
       <a name="text" val="Treat 11 as 00"/>
       <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(497,116)" name="Text">
+      <a name="text" val="Decoders aren't required,"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(742,552)" name="Text">
+      <a name="text" val="Otherwise, TNOR is 0"/>
+      <a name="valign" val="top"/>
+    </comp>
+  </circuit>
+  <circuit name="TNOR fast, 2 input, unsafe">
+    <a name="circuit" val="TNOR fast, 2 input, unsafe"/>
+    <a name="label" val=""/>
+    <a name="labelup" val="east"/>
+    <a name="labelfont" val="SansSerif plain 12"/>
+    <appear>
+      <path d="M52,96 Q86,95 103,70" fill="none" stroke="#870007"/>
+      <ellipse cx="115.0" cy="70.0" fill="none" rx="5.0" ry="5.0" stroke="#000000" stroke-width="2"/>
+      <path d="M45,41 Q91,40 109,69" fill="none" stroke="#000000" stroke-width="2"/>
+      <path d="M52,46 Q86,45 103,70" fill="none" stroke="#870007"/>
+      <path d="M45,41 Q60,70 45,100" fill="none" stroke="#000000" stroke-width="2"/>
+      <path d="M52,46 Q64,69 52,96" fill="none" stroke="#870007"/>
+      <path d="M45,100 Q91,100 109,70" fill="none" stroke="#000000" stroke-width="2"/>
+      <circ-port height="8" pin="240,410" width="8" x="46" y="46"/>
+      <circ-port height="8" pin="240,450" width="8" x="46" y="86"/>
+      <circ-port height="10" pin="590,440" width="10" x="115" y="65"/>
+      <circ-anchor facing="east" height="6" width="6" x="117" y="67"/>
+    </appear>
+    <wire from="(290,530)" to="(420,530)"/>
+    <wire from="(320,440)" to="(330,440)"/>
+    <wire from="(240,410)" to="(260,410)"/>
+    <wire from="(290,400)" to="(290,530)"/>
+    <wire from="(350,390)" to="(350,450)"/>
+    <wire from="(330,440)" to="(330,490)"/>
+    <wire from="(330,490)" to="(420,490)"/>
+    <wire from="(280,400)" to="(290,400)"/>
+    <wire from="(310,350)" to="(310,410)"/>
+    <wire from="(240,450)" to="(300,450)"/>
+    <wire from="(550,370)" to="(550,430)"/>
+    <wire from="(470,510)" to="(550,510)"/>
+    <wire from="(310,350)" to="(420,350)"/>
+    <wire from="(320,450)" to="(350,450)"/>
+    <wire from="(280,410)" to="(310,410)"/>
+    <wire from="(550,440)" to="(550,510)"/>
+    <wire from="(350,390)" to="(420,390)"/>
+    <wire from="(470,370)" to="(550,370)"/>
+    <wire from="(570,440)" to="(590,440)"/>
+    <comp lib="0" loc="(452,304)" name="Text">
+      <a name="text" val="If all inputs are -1, TNOR is 1"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(240,410)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(300,450)" name="Splitter"/>
+    <comp lib="0" loc="(450,461)" name="Text">
+      <a name="text" val="If any input is 1, TNOR is -1"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(240,450)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="1" loc="(470,510)" name="OR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(260,410)" name="Splitter"/>
+    <comp lib="0" loc="(237,200)" name="Text">
+      <a name="text" val="See note on TNAND fast"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(590,440)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(470,370)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(433,561)" name="Text">
+      <a name="text" val="Otherwise, TNOR is 0"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(570,440)" name="Splitter">
+      <a name="facing" val="west"/>
     </comp>
   </circuit>
   <circuit name="TAND (min) 3 input">
@@ -1599,34 +1769,43 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(200,620)" to="(270,620)"/>
     <wire from="(290,150)" to="(380,150)"/>
     <wire from="(340,260)" to="(340,330)"/>
+    <comp lib="1" loc="(740,260)" name="AND Gate"/>
+    <comp lib="1" loc="(740,420)" name="OR Gate"/>
+    <comp lib="0" loc="(494,135)" name="Text">
+      <a name="text" val="But they make the circuit"/>
+      <a name="valign" val="top"/>
+    </comp>
     <comp lib="0" loc="(910,420)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="2"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(200,420)" name="Pin">
+    <comp lib="0" loc="(200,620)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(497,116)" name="Text">
-      <a name="text" val="Decoders aren't required,"/>
-      <a name="valign" val="top"/>
     </comp>
     <comp lib="0" loc="(463,155)" name="Text">
       <a name="text" val="Treat 11 as 00"/>
       <a name="valign" val="top"/>
     </comp>
-    <comp lib="0" loc="(200,620)" name="Pin">
+    <comp lib="0" loc="(763,462)" name="Text">
+      <a name="text" val="If any input is -1, min is -1"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(200,420)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="2" loc="(270,360)" name="Decoder">
+      <a name="select" val="2"/>
+    </comp>
+    <comp lib="0" loc="(200,220)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
     </comp>
     <comp lib="0" loc="(870,420)" name="Splitter">
       <a name="facing" val="west"/>
-    </comp>
-    <comp lib="0" loc="(743,551)" name="Text">
-      <a name="text" val="Otherwise, min is 0"/>
-      <a name="valign" val="top"/>
     </comp>
     <comp lib="2" loc="(270,160)" name="Decoder">
       <a name="select" val="2"/>
@@ -1634,27 +1813,18 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="2" loc="(270,560)" name="Decoder">
       <a name="select" val="2"/>
     </comp>
-    <comp lib="0" loc="(763,462)" name="Text">
-      <a name="text" val="If any input is -1, min is -1"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="2" loc="(270,360)" name="Decoder">
-      <a name="select" val="2"/>
-    </comp>
-    <comp lib="0" loc="(494,135)" name="Text">
-      <a name="text" val="But they make the circuit"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="1" loc="(740,260)" name="AND Gate"/>
-    <comp lib="0" loc="(200,220)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
     <comp lib="0" loc="(764,212)" name="Text">
       <a name="text" val="If all inputs are 1, min is 1"/>
       <a name="valign" val="top"/>
     </comp>
-    <comp lib="1" loc="(740,420)" name="OR Gate"/>
+    <comp lib="0" loc="(743,551)" name="Text">
+      <a name="text" val="Otherwise, min is 0"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(497,116)" name="Text">
+      <a name="text" val="Decoders aren't required,"/>
+      <a name="valign" val="top"/>
+    </comp>
   </circuit>
   <circuit name="TAND fast, 2 input, unsafe">
     <a name="circuit" val="TAND fast, 2 input, unsafe"/>
@@ -1677,49 +1847,49 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <circ-port height="10" pin="490,350" width="10" x="105" y="65"/>
       <circ-anchor facing="east" height="6" width="6" x="107" y="67"/>
     </appear>
-    <wire from="(230,280)" to="(340,280)"/>
-    <wire from="(390,260)" to="(450,260)"/>
     <wire from="(450,260)" to="(450,340)"/>
     <wire from="(260,240)" to="(260,320)"/>
+    <wire from="(390,350)" to="(450,350)"/>
+    <wire from="(230,280)" to="(340,280)"/>
     <wire from="(260,330)" to="(340,330)"/>
-    <wire from="(180,330)" to="(240,330)"/>
     <wire from="(260,240)" to="(340,240)"/>
     <wire from="(230,370)" to="(340,370)"/>
+    <wire from="(390,260)" to="(450,260)"/>
+    <wire from="(180,330)" to="(240,330)"/>
     <wire from="(180,370)" to="(210,370)"/>
-    <wire from="(390,350)" to="(450,350)"/>
     <wire from="(230,280)" to="(230,360)"/>
     <wire from="(470,350)" to="(490,350)"/>
-    <comp lib="0" loc="(180,370)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(304,157)" name="Text">
-      <a name="text" val="See the notes on TNAND fast"/>
+    <comp lib="0" loc="(366,214)" name="Text">
+      <a name="text" val="If all inputs are 1, min is 1"/>
       <a name="valign" val="top"/>
     </comp>
+    <comp lib="0" loc="(240,330)" name="Splitter"/>
+    <comp lib="1" loc="(390,350)" name="OR Gate"/>
     <comp lib="0" loc="(352,387)" name="Text">
       <a name="text" val="Otherwise, min is 0"/>
       <a name="valign" val="top"/>
     </comp>
-    <comp lib="1" loc="(390,260)" name="AND Gate"/>
     <comp lib="0" loc="(210,370)" name="Splitter"/>
     <comp lib="0" loc="(470,350)" name="Splitter">
       <a name="facing" val="west"/>
     </comp>
-    <comp lib="0" loc="(366,214)" name="Text">
-      <a name="text" val="If all inputs are 1, min is 1"/>
+    <comp lib="0" loc="(304,157)" name="Text">
+      <a name="text" val="See the notes on TNAND fast"/>
       <a name="valign" val="top"/>
     </comp>
     <comp lib="0" loc="(355,298)" name="Text">
       <a name="text" val="If any input is -1, min is -1"/>
       <a name="valign" val="top"/>
     </comp>
+    <comp lib="1" loc="(390,260)" name="AND Gate"/>
+    <comp lib="0" loc="(180,370)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
     <comp lib="0" loc="(180,330)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(240,330)" name="Splitter"/>
-    <comp lib="1" loc="(390,350)" name="OR Gate"/>
     <comp lib="0" loc="(490,350)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -1788,9 +1958,32 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(200,620)" to="(270,620)"/>
     <wire from="(290,150)" to="(380,150)"/>
     <wire from="(340,260)" to="(340,330)"/>
+    <comp lib="2" loc="(270,160)" name="Decoder">
+      <a name="select" val="2"/>
+    </comp>
+    <comp lib="0" loc="(743,552)" name="Text">
+      <a name="text" val="Otherwise, max is 0"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="2" loc="(270,360)" name="Decoder">
+      <a name="select" val="2"/>
+    </comp>
+    <comp lib="1" loc="(740,420)" name="AND Gate"/>
+    <comp lib="0" loc="(200,420)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(463,155)" name="Text">
+      <a name="text" val="Treat 11 as 00"/>
+      <a name="valign" val="top"/>
+    </comp>
     <comp lib="0" loc="(764,212)" name="Text">
       <a name="text" val="If any input is 1, max is 1"/>
       <a name="valign" val="top"/>
+    </comp>
+    <comp lib="1" loc="(740,260)" name="OR Gate"/>
+    <comp lib="0" loc="(870,420)" name="Splitter">
+      <a name="facing" val="west"/>
     </comp>
     <comp lib="0" loc="(910,420)" name="Pin">
       <a name="facing" val="west"/>
@@ -1798,51 +1991,193 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="2"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(463,155)" name="Text">
-      <a name="text" val="Treat 11 as 00"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(200,620)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
     <comp lib="0" loc="(494,135)" name="Text">
       <a name="text" val="But they make the circuit"/>
       <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(497,116)" name="Text">
-      <a name="text" val="Decoders aren't required,"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="1" loc="(740,260)" name="OR Gate"/>
-    <comp lib="0" loc="(743,552)" name="Text">
-      <a name="text" val="Otherwise, max is 0"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="2" loc="(270,560)" name="Decoder">
-      <a name="select" val="2"/>
     </comp>
     <comp lib="0" loc="(200,220)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="1" loc="(740,420)" name="AND Gate"/>
-    <comp lib="0" loc="(870,420)" name="Splitter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="0" loc="(200,420)" name="Pin">
+    <comp lib="0" loc="(200,620)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="2" loc="(270,360)" name="Decoder">
-      <a name="select" val="2"/>
+    <comp lib="0" loc="(497,116)" name="Text">
+      <a name="text" val="Decoders aren't required,"/>
+      <a name="valign" val="top"/>
     </comp>
     <comp lib="0" loc="(763,462)" name="Text">
       <a name="text" val="If all inputs are -1, max is -1"/>
       <a name="valign" val="top"/>
     </comp>
-    <comp lib="2" loc="(270,160)" name="Decoder">
+    <comp lib="2" loc="(270,560)" name="Decoder">
       <a name="select" val="2"/>
+    </comp>
+  </circuit>
+  <circuit name="3:1 MUX">
+    <a name="circuit" val="3:1 MUX"/>
+    <a name="label" val=""/>
+    <a name="labelup" val="east"/>
+    <a name="labelfont" val="SansSerif plain 12"/>
+    <appear>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="60" y="74">0</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="60" y="56">+</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="60" y="82">_</text>
+      <polygon fill="none" points="50,40 50,100 90,80 90,60" stroke="#000000" stroke-width="2"/>
+      <circ-port height="8" pin="140,270" width="8" x="46" y="46"/>
+      <circ-port height="8" pin="140,330" width="8" x="46" y="66"/>
+      <circ-port height="8" pin="140,390" width="8" x="46" y="86"/>
+      <circ-port height="8" pin="140,870" width="8" x="66" y="86"/>
+      <circ-port height="10" pin="660,350" width="10" x="85" y="65"/>
+      <circ-anchor facing="east" height="6" width="6" x="87" y="67"/>
+    </appear>
+    <wire from="(270,600)" to="(270,620)"/>
+    <wire from="(140,870)" to="(230,870)"/>
+    <wire from="(140,330)" to="(420,330)"/>
+    <wire from="(230,700)" to="(230,750)"/>
+    <wire from="(490,410)" to="(520,410)"/>
+    <wire from="(630,350)" to="(660,350)"/>
+    <wire from="(350,430)" to="(350,620)"/>
+    <wire from="(350,620)" to="(350,750)"/>
+    <wire from="(520,290)" to="(520,330)"/>
+    <wire from="(490,290)" to="(520,290)"/>
+    <wire from="(350,430)" to="(420,430)"/>
+    <wire from="(520,370)" to="(560,370)"/>
+    <wire from="(490,350)" to="(560,350)"/>
+    <wire from="(230,310)" to="(420,310)"/>
+    <wire from="(520,330)" to="(560,330)"/>
+    <wire from="(290,370)" to="(290,530)"/>
+    <wire from="(310,600)" to="(310,620)"/>
+    <wire from="(230,620)" to="(270,620)"/>
+    <wire from="(290,370)" to="(420,370)"/>
+    <wire from="(140,270)" to="(420,270)"/>
+    <wire from="(520,370)" to="(520,410)"/>
+    <wire from="(350,800)" to="(350,870)"/>
+    <wire from="(230,870)" to="(350,870)"/>
+    <wire from="(310,620)" to="(350,620)"/>
+    <wire from="(230,310)" to="(230,620)"/>
+    <wire from="(230,620)" to="(230,650)"/>
+    <wire from="(140,390)" to="(420,390)"/>
+    <wire from="(230,800)" to="(230,870)"/>
+    <comp loc="(350,750)" name="PTI Positive Trinary Inverter">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(490,350)" name="TNAND fast, 2 input, unsafe"/>
+    <comp loc="(490,410)" name="TNAND fast, 2 input, unsafe"/>
+    <comp lib="0" loc="(140,330)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="In0"/>
+    </comp>
+    <comp loc="(490,290)" name="TNAND fast, 2 input, unsafe"/>
+    <comp lib="0" loc="(660,350)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="label" val="output"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp loc="(290,530)" name="TNOR fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(630,350)" name="TNAND fast, 3 input, unsafe"/>
+    <comp lib="0" loc="(140,390)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Inj"/>
+    </comp>
+    <comp lib="0" loc="(140,270)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="In1"/>
+    </comp>
+    <comp lib="0" loc="(140,870)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="select"/>
+    </comp>
+    <comp loc="(230,750)" name="NTI Negative Trinary Inverter">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(230,650)" name="STI Simple Ternary Inverter">
+      <a name="facing" val="north"/>
+    </comp>
+  </circuit>
+  <circuit name="1:3 decoder">
+    <a name="circuit" val="1:3 decoder"/>
+    <a name="label" val=""/>
+    <a name="labelup" val="east"/>
+    <a name="labelfont" val="SansSerif plain 12"/>
+    <appear>
+      <polygon fill="none" points="50,60 50,80 90,100 90,40" stroke="#000000" stroke-width="2"/>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="80" y="57">+</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="80" y="75">0</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="80" y="83">_</text>
+      <circ-port height="8" pin="180,620" width="8" x="66" y="86"/>
+      <circ-port height="10" pin="500,200" width="10" x="85" y="45"/>
+      <circ-port height="10" pin="500,240" width="10" x="85" y="65"/>
+      <circ-port height="10" pin="500,280" width="10" x="85" y="85"/>
+      <circ-anchor facing="east" height="6" width="6" x="87" y="67"/>
+    </appear>
+    <wire from="(390,280)" to="(390,370)"/>
+    <wire from="(350,370)" to="(390,370)"/>
+    <wire from="(390,280)" to="(500,280)"/>
+    <wire from="(270,450)" to="(270,500)"/>
+    <wire from="(270,550)" to="(270,620)"/>
+    <wire from="(180,620)" to="(270,620)"/>
+    <wire from="(390,370)" to="(390,500)"/>
+    <wire from="(330,240)" to="(330,280)"/>
+    <wire from="(270,620)" to="(390,620)"/>
+    <wire from="(270,200)" to="(270,370)"/>
+    <wire from="(310,350)" to="(310,370)"/>
+    <wire from="(330,240)" to="(500,240)"/>
+    <wire from="(350,350)" to="(350,370)"/>
+    <wire from="(270,200)" to="(500,200)"/>
+    <wire from="(390,550)" to="(390,620)"/>
+    <wire from="(270,370)" to="(270,400)"/>
+    <wire from="(270,370)" to="(310,370)"/>
+    <comp loc="(390,500)" name="PTI Positive Trinary Inverter">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(330,280)" name="TNOR fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(500,280)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="label" val="if (S==j) j else 1"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp loc="(270,400)" name="STI Simple Ternary Inverter">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(309,145)" name="Text">
+      <a name="text" val="See 3:1 MUX to see one way to use outputs"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp loc="(270,500)" name="NTI Negative Trinary Inverter">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(500,240)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="label" val="if (S==0) j else 1"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(500,200)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="label" val="if (S==1) j else 1"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(180,620)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="S"/>
     </comp>
   </circuit>
   <circuit name="6t Register">
@@ -1918,32 +2253,13 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(680,260)" to="(680,310)"/>
     <wire from="(260,240)" to="(260,440)"/>
     <wire from="(380,240)" to="(400,240)"/>
-    <comp loc="(440,240)" name="Register (master-slave D-latch)"/>
-    <comp loc="(340,240)" name="Register (master-slave D-latch)"/>
-    <comp lib="0" loc="(800,420)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="fanout" val="6"/>
-      <a name="incoming" val="12"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="1"/>
-      <a name="bit3" val="1"/>
-      <a name="bit4" val="2"/>
-      <a name="bit5" val="2"/>
-      <a name="bit6" val="3"/>
-      <a name="bit7" val="3"/>
-      <a name="bit8" val="4"/>
-      <a name="bit9" val="4"/>
-      <a name="bit10" val="5"/>
-      <a name="bit11" val="5"/>
-    </comp>
-    <comp loc="(640,240)" name="Register (master-slave D-latch)"/>
-    <comp loc="(740,240)" name="Register (master-slave D-latch)"/>
     <comp lib="0" loc="(60,310)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
       <a name="label" val="clock"/>
     </comp>
-    <comp lib="0" loc="(130,150)" name="Splitter">
+    <comp lib="0" loc="(800,420)" name="Splitter">
+      <a name="facing" val="west"/>
       <a name="fanout" val="6"/>
       <a name="incoming" val="12"/>
       <a name="bit1" val="0"/>
@@ -1963,7 +2279,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="label" val="D"/>
     </comp>
-    <comp loc="(240,240)" name="Register (master-slave D-latch)"/>
+    <comp loc="(340,240)" name="Register (master-slave D-latch)"/>
+    <comp loc="(740,240)" name="Register (master-slave D-latch)"/>
+    <comp loc="(540,240)" name="Register (master-slave D-latch)"/>
     <comp lib="0" loc="(800,420)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -1971,7 +2289,24 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="Q"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(540,240)" name="Register (master-slave D-latch)"/>
+    <comp lib="0" loc="(130,150)" name="Splitter">
+      <a name="fanout" val="6"/>
+      <a name="incoming" val="12"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
+      <a name="bit4" val="2"/>
+      <a name="bit5" val="2"/>
+      <a name="bit6" val="3"/>
+      <a name="bit7" val="3"/>
+      <a name="bit8" val="4"/>
+      <a name="bit9" val="4"/>
+      <a name="bit10" val="5"/>
+      <a name="bit11" val="5"/>
+    </comp>
+    <comp loc="(640,240)" name="Register (master-slave D-latch)"/>
+    <comp loc="(240,240)" name="Register (master-slave D-latch)"/>
+    <comp loc="(440,240)" name="Register (master-slave D-latch)"/>
   </circuit>
   <circuit name="D-Latch (level triggered)">
     <a name="circuit" val="D-Latch (level triggered)"/>
@@ -2010,23 +2345,23 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(300,200)" to="(320,200)"/>
     <wire from="(390,340)" to="(430,340)"/>
     <wire from="(520,260)" to="(550,260)"/>
+    <comp loc="(220,320)" name="NTI Negative Trinary Inverter"/>
+    <comp loc="(390,200)" name="TNAND 3 input"/>
+    <comp loc="(520,260)" name="TNAND fast, 2 input, unsafe"/>
     <comp lib="0" loc="(90,180)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
       <a name="label" val="D"/>
     </comp>
-    <comp loc="(390,200)" name="TNAND 3 input"/>
-    <comp loc="(390,340)" name="TNAND fast, 2 input, unsafe"/>
     <comp loc="(260,240)" name="STI Simple Ternary Inverter">
       <a name="facing" val="north"/>
     </comp>
-    <comp loc="(220,320)" name="NTI Negative Trinary Inverter"/>
+    <comp loc="(390,340)" name="TNAND fast, 2 input, unsafe"/>
     <comp lib="0" loc="(90,320)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
       <a name="label" val="E(1)"/>
     </comp>
-    <comp loc="(520,260)" name="TNAND fast, 2 input, unsafe"/>
     <comp lib="0" loc="(620,260)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -2065,19 +2400,19 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(210,280)" to="(220,280)"/>
     <wire from="(370,280)" to="(390,280)"/>
     <wire from="(190,210)" to="(230,210)"/>
+    <comp loc="(220,280)" name="STI Simple Ternary Inverter">
+      <a name="facing" val="west"/>
+    </comp>
     <comp lib="0" loc="(190,210)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
       <a name="label" val="D"/>
     </comp>
+    <comp loc="(370,210)" name="D-Latch (level triggered)"/>
     <comp lib="0" loc="(190,310)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
       <a name="label" val="Clock (pulse, latch in on rising edge, out on falling)"/>
-    </comp>
-    <comp loc="(270,210)" name="D-Latch (level triggered)"/>
-    <comp loc="(220,280)" name="STI Simple Ternary Inverter">
-      <a name="facing" val="west"/>
     </comp>
     <comp lib="0" loc="(410,210)" name="Pin">
       <a name="facing" val="west"/>
@@ -2089,7 +2424,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp loc="(320,280)" name="NTI Negative Trinary Inverter">
       <a name="facing" val="west"/>
     </comp>
-    <comp loc="(370,210)" name="D-Latch (level triggered)"/>
+    <comp loc="(270,210)" name="D-Latch (level triggered)"/>
   </circuit>
   <circuit name="D-Latch w/ leds">
     <a name="circuit" val="D-Latch w/ leds"/>
@@ -2144,31 +2479,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(260,220)" to="(260,250)"/>
     <wire from="(260,220)" to="(300,220)"/>
     <wire from="(90,180)" to="(130,180)"/>
-    <comp loc="(380,250)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="5" loc="(410,240)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(260,350)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(270,240)" name="LED">
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(340,420)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(230,340)" name="LED">
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(380,250)" name="LED">
+    <comp loc="(520,260)" name="TNAND 3 input"/>
+    <comp lib="5" loc="(130,350)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
@@ -2178,10 +2490,111 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp loc="(260,250)" name="STI Simple Ternary Inverter">
-      <a name="facing" val="north"/>
+    <comp lib="5" loc="(160,200)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(310,410)" name="LED">
+    <comp lib="5" loc="(160,340)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(380,370)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(340,420)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(270,240)" name="LED">
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(380,250)" name="tri-led-driver">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="5" loc="(100,340)" name="LED">
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(130,350)" name="tri-led-driver">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp loc="(300,250)" name="tri-led-driver">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="5" loc="(350,360)" name="LED">
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(390,320)" name="TNAND 3 input"/>
+    <comp loc="(130,210)" name="tri-led-driver">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="5" loc="(380,250)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(260,350)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(620,260)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="label" val="Q"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="5" loc="(370,410)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(300,250)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(130,210)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(340,420)" name="tri-led-driver">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="5" loc="(410,240)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(510,310)" name="tri-led-driver">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp loc="(260,350)" name="tri-led-driver">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="5" loc="(290,340)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(390,200)" name="TNAND 3 input"/>
+    <comp lib="5" loc="(230,340)" name="LED">
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(90,320)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="E(1)"/>
+    </comp>
+    <comp lib="5" loc="(510,310)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
     <comp lib="0" loc="(90,180)" name="Pin">
@@ -2191,34 +2604,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </comp>
     <comp lib="5" loc="(100,200)" name="LED">
       <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(160,200)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(300,250)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp loc="(380,370)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="5" loc="(380,370)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(390,320)" name="TNAND 3 input"/>
-    <comp loc="(520,260)" name="TNAND 3 input"/>
-    <comp loc="(340,420)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp loc="(130,350)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp loc="(390,200)" name="TNAND 3 input"/>
-    <comp loc="(510,310)" name="tri-led-driver">
-      <a name="facing" val="south"/>
     </comp>
     <comp lib="5" loc="(410,360)" name="LED">
       <a name="facing" val="east"/>
@@ -2230,70 +2615,20 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="0" loc="(90,320)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="E(1)"/>
+    <comp loc="(380,370)" name="tri-led-driver">
+      <a name="facing" val="south"/>
     </comp>
     <comp loc="(220,320)" name="NTI Negative Trinary Inverter"/>
-    <comp lib="5" loc="(130,210)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(300,250)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(100,340)" name="LED">
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(620,260)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="2"/>
-      <a name="label" val="Q"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp loc="(260,350)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="5" loc="(290,340)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(130,350)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
+    <comp lib="5" loc="(480,300)" name="LED">
       <a name="offcolor" val="#40404000"/>
     </comp>
     <comp lib="5" loc="(350,240)" name="LED">
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(160,340)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
+    <comp loc="(260,250)" name="STI Simple Ternary Inverter">
+      <a name="facing" val="north"/>
     </comp>
-    <comp lib="5" loc="(370,410)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(480,300)" name="LED">
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(350,360)" name="LED">
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(130,210)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="5" loc="(510,310)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
+    <comp lib="5" loc="(310,410)" name="LED">
       <a name="offcolor" val="#40404000"/>
     </comp>
   </circuit>
@@ -2663,56 +2998,28 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(1020,300)" to="(1050,300)"/>
     <wire from="(2000,270)" to="(2100,270)"/>
     <wire from="(1460,260)" to="(1510,260)"/>
-    <comp lib="2" loc="(1640,360)" name="Multiplexer">
-      <a name="facing" val="south"/>
-      <a name="select" val="2"/>
-      <a name="width" val="12"/>
-    </comp>
-    <comp loc="(2290,410)" name="6t Register"/>
+    <comp loc="(970,410)" name="6t Register"/>
+    <comp loc="(1450,410)" name="6t Register"/>
+    <comp loc="(1330,410)" name="6t Register"/>
+    <comp loc="(850,410)" name="6t Register"/>
     <comp lib="2" loc="(1520,360)" name="Multiplexer">
       <a name="facing" val="south"/>
       <a name="select" val="2"/>
       <a name="width" val="12"/>
     </comp>
-    <comp lib="2" loc="(1400,360)" name="Multiplexer">
-      <a name="facing" val="south"/>
-      <a name="select" val="2"/>
-      <a name="width" val="12"/>
-    </comp>
-    <comp loc="(610,410)" name="6t Register"/>
-    <comp lib="2" loc="(1160,360)" name="Multiplexer">
-      <a name="facing" val="south"/>
-      <a name="select" val="2"/>
-      <a name="width" val="12"/>
-    </comp>
-    <comp loc="(2530,410)" name="6t Register"/>
-    <comp loc="(1930,410)" name="6t Register"/>
-    <comp lib="2" loc="(2240,360)" name="Multiplexer">
-      <a name="facing" val="south"/>
-      <a name="select" val="2"/>
-      <a name="width" val="12"/>
-    </comp>
-    <comp lib="2" loc="(2120,360)" name="Multiplexer">
-      <a name="facing" val="south"/>
-      <a name="select" val="2"/>
-      <a name="width" val="12"/>
+    <comp loc="(1210,410)" name="6t Register"/>
+    <comp lib="0" loc="(300,460)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="clock"/>
     </comp>
     <comp lib="2" loc="(440,360)" name="Multiplexer">
       <a name="facing" val="south"/>
       <a name="select" val="2"/>
       <a name="width" val="12"/>
     </comp>
-    <comp lib="0" loc="(261,360)" name="Text">
-      <a name="text" val="Lazy and cheating to use MUXes here I think."/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp loc="(1570,410)" name="6t Register"/>
-    <comp lib="2" loc="(2360,360)" name="Multiplexer">
-      <a name="facing" val="south"/>
-      <a name="select" val="2"/>
-      <a name="width" val="12"/>
-    </comp>
-    <comp lib="2" loc="(2000,360)" name="Multiplexer">
+    <comp loc="(1810,410)" name="6t Register"/>
+    <comp lib="2" loc="(1160,360)" name="Multiplexer">
       <a name="facing" val="south"/>
       <a name="select" val="2"/>
       <a name="width" val="12"/>
@@ -2722,43 +3029,33 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="select" val="2"/>
       <a name="width" val="12"/>
     </comp>
-    <comp lib="2" loc="(800,360)" name="Multiplexer">
+    <comp lib="2" loc="(2120,360)" name="Multiplexer">
       <a name="facing" val="south"/>
       <a name="select" val="2"/>
       <a name="width" val="12"/>
     </comp>
-    <comp lib="0" loc="(300,190)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="j=pop, 1=push, 0=nop"/>
-    </comp>
-    <comp lib="0" loc="(300,260)" name="Pin">
+    <comp loc="(730,410)" name="6t Register"/>
+    <comp lib="2" loc="(920,360)" name="Multiplexer">
+      <a name="facing" val="south"/>
+      <a name="select" val="2"/>
       <a name="width" val="12"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="in"/>
     </comp>
     <comp lib="2" loc="(560,360)" name="Multiplexer">
       <a name="facing" val="south"/>
       <a name="select" val="2"/>
       <a name="width" val="12"/>
     </comp>
-    <comp loc="(2050,410)" name="6t Register"/>
-    <comp loc="(2410,410)" name="6t Register"/>
-    <comp lib="0" loc="(655,156)" name="Text">
-      <a name="text" val="It is often called a stack, and we usually think about it as a stack, but it's actually a ring.  18 pops in a row is a long slow nop."/>
-      <a name="valign" val="top"/>
+    <comp lib="0" loc="(550,600)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="12"/>
+      <a name="label" val="top-of-stack"/>
+      <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(1450,410)" name="6t Register"/>
-    <comp lib="0" loc="(300,460)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="clock"/>
-    </comp>
-    <comp loc="(2170,410)" name="6t Register"/>
-    <comp loc="(850,410)" name="6t Register"/>
+    <comp loc="(610,410)" name="6t Register"/>
     <comp loc="(490,410)" name="6t Register"/>
-    <comp loc="(1330,410)" name="6t Register"/>
-    <comp lib="2" loc="(2480,360)" name="Multiplexer">
+    <comp loc="(1090,410)" name="6t Register"/>
+    <comp lib="2" loc="(2000,360)" name="Multiplexer">
       <a name="facing" val="south"/>
       <a name="select" val="2"/>
       <a name="width" val="12"/>
@@ -2768,39 +3065,77 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="select" val="2"/>
       <a name="width" val="12"/>
     </comp>
-    <comp loc="(1090,410)" name="6t Register"/>
+    <comp lib="2" loc="(2480,360)" name="Multiplexer">
+      <a name="facing" val="south"/>
+      <a name="select" val="2"/>
+      <a name="width" val="12"/>
+    </comp>
+    <comp loc="(2170,410)" name="6t Register"/>
+    <comp lib="0" loc="(261,360)" name="Text">
+      <a name="text" val="Lazy and cheating to use MUXes here I think."/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp loc="(2410,410)" name="6t Register"/>
+    <comp lib="2" loc="(1640,360)" name="Multiplexer">
+      <a name="facing" val="south"/>
+      <a name="select" val="2"/>
+      <a name="width" val="12"/>
+    </comp>
+    <comp lib="0" loc="(300,190)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="j=pop, 1=push, 0=nop"/>
+    </comp>
     <comp lib="2" loc="(1280,360)" name="Multiplexer">
       <a name="facing" val="south"/>
       <a name="select" val="2"/>
       <a name="width" val="12"/>
     </comp>
-    <comp lib="2" loc="(920,360)" name="Multiplexer">
+    <comp lib="0" loc="(655,156)" name="Text">
+      <a name="text" val="It is often called a stack, and we usually think about it as a stack, but it's actually a ring.  18 pops in a row is a long slow nop."/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="2" loc="(2240,360)" name="Multiplexer">
       <a name="facing" val="south"/>
       <a name="select" val="2"/>
       <a name="width" val="12"/>
     </comp>
-    <comp loc="(970,410)" name="6t Register"/>
-    <comp loc="(1810,410)" name="6t Register"/>
     <comp lib="2" loc="(1880,360)" name="Multiplexer">
       <a name="facing" val="south"/>
       <a name="select" val="2"/>
       <a name="width" val="12"/>
     </comp>
-    <comp loc="(730,410)" name="6t Register"/>
-    <comp loc="(1210,410)" name="6t Register"/>
+    <comp lib="2" loc="(1400,360)" name="Multiplexer">
+      <a name="facing" val="south"/>
+      <a name="select" val="2"/>
+      <a name="width" val="12"/>
+    </comp>
+    <comp loc="(2290,410)" name="6t Register"/>
+    <comp lib="2" loc="(800,360)" name="Multiplexer">
+      <a name="facing" val="south"/>
+      <a name="select" val="2"/>
+      <a name="width" val="12"/>
+    </comp>
+    <comp loc="(2050,410)" name="6t Register"/>
     <comp lib="2" loc="(680,360)" name="Multiplexer">
       <a name="facing" val="south"/>
       <a name="select" val="2"/>
       <a name="width" val="12"/>
     </comp>
-    <comp loc="(1690,410)" name="6t Register"/>
-    <comp lib="0" loc="(550,600)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
+    <comp lib="0" loc="(300,260)" name="Pin">
       <a name="width" val="12"/>
-      <a name="label" val="top-of-stack"/>
-      <a name="labelloc" val="east"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="in"/>
     </comp>
+    <comp lib="2" loc="(2360,360)" name="Multiplexer">
+      <a name="facing" val="south"/>
+      <a name="select" val="2"/>
+      <a name="width" val="12"/>
+    </comp>
+    <comp loc="(1690,410)" name="6t Register"/>
+    <comp loc="(1570,410)" name="6t Register"/>
+    <comp loc="(1930,410)" name="6t Register"/>
+    <comp loc="(2530,410)" name="6t Register"/>
   </circuit>
   <circuit name="2t-to-7seg driver">
     <a name="circuit" val="2t-to-7seg driver"/>
@@ -2844,16 +3179,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(690,360)" to="(690,440)"/>
     <wire from="(670,480)" to="(840,480)"/>
     <wire from="(550,480)" to="(650,480)"/>
-    <comp lib="0" loc="(840,420)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(310,480)" name="Pin">
-      <a name="width" val="4"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(840,480)" name="Pin">
+    <comp lib="0" loc="(840,450)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
@@ -2865,12 +3191,12 @@ fc 60 ee fc f2 66 da f2
 9c 3e 7a 9c fc 60 ee fc
 </a>
     </comp>
-    <comp lib="0" loc="(840,360)" name="Pin">
+    <comp lib="0" loc="(840,480)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(840,510)" name="Pin">
+    <comp lib="0" loc="(840,420)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
@@ -2880,7 +3206,7 @@ fc 60 ee fc f2 66 da f2
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(840,540)" name="Pin">
+    <comp lib="0" loc="(840,360)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
@@ -2890,7 +3216,7 @@ fc 60 ee fc f2 66 da f2
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(840,450)" name="Pin">
+    <comp lib="0" loc="(840,540)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
@@ -2898,6 +3224,15 @@ fc 60 ee fc f2 66 da f2
     <comp lib="0" loc="(650,480)" name="Splitter">
       <a name="fanout" val="8"/>
       <a name="incoming" val="8"/>
+    </comp>
+    <comp lib="0" loc="(840,510)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(310,480)" name="Pin">
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
     </comp>
   </circuit>
   <circuit name="6t counter">
@@ -2919,21 +3254,21 @@ fc 60 ee fc f2 66 da f2
     <wire from="(970,170)" to="(980,170)"/>
     <wire from="(540,620)" to="(570,620)"/>
     <wire from="(400,620)" to="(430,620)"/>
-    <wire from="(410,890)" to="(510,890)"/>
     <wire from="(980,70)" to="(980,170)"/>
     <wire from="(290,880)" to="(330,880)"/>
     <wire from="(590,710)" to="(690,710)"/>
     <wire from="(730,680)" to="(750,680)"/>
-    <wire from="(270,780)" to="(270,790)"/>
     <wire from="(650,780)" to="(690,780)"/>
     <wire from="(570,880)" to="(610,880)"/>
     <wire from="(70,470)" to="(90,470)"/>
     <wire from="(270,580)" to="(270,680)"/>
     <wire from="(650,580)" to="(650,590)"/>
+    <wire from="(250,890)" to="(370,890)"/>
     <wire from="(890,480)" to="(890,510)"/>
     <wire from="(350,620)" to="(360,620)"/>
     <wire from="(810,740)" to="(830,740)"/>
     <wire from="(450,710)" to="(450,740)"/>
+    <wire from="(530,890)" to="(650,890)"/>
     <wire from="(670,480)" to="(670,510)"/>
     <wire from="(310,580)" to="(310,680)"/>
     <wire from="(710,90)" to="(1000,90)"/>
@@ -2941,7 +3276,6 @@ fc 60 ee fc f2 66 da f2
     <wire from="(770,580)" to="(770,620)"/>
     <wire from="(520,680)" to="(550,680)"/>
     <wire from="(410,680)" to="(410,710)"/>
-    <wire from="(140,470)" to="(220,470)"/>
     <wire from="(660,450)" to="(660,480)"/>
     <wire from="(770,620)" to="(780,620)"/>
     <wire from="(730,740)" to="(760,740)"/>
@@ -2951,7 +3285,6 @@ fc 60 ee fc f2 66 da f2
     <wire from="(510,580)" to="(510,590)"/>
     <wire from="(290,590)" to="(290,620)"/>
     <wire from="(910,450)" to="(910,470)"/>
-    <wire from="(190,770)" to="(190,880)"/>
     <wire from="(550,580)" to="(550,680)"/>
     <wire from="(310,680)" to="(330,680)"/>
     <wire from="(790,590)" to="(850,590)"/>
@@ -2969,9 +3302,7 @@ fc 60 ee fc f2 66 da f2
     <wire from="(330,770)" to="(330,880)"/>
     <wire from="(780,450)" to="(780,470)"/>
     <wire from="(680,620)" to="(710,620)"/>
-    <wire from="(530,890)" to="(550,890)"/>
     <wire from="(360,470)" to="(500,470)"/>
-    <wire from="(230,780)" to="(270,780)"/>
     <wire from="(370,780)" to="(410,780)"/>
     <wire from="(590,740)" to="(620,740)"/>
     <wire from="(570,100)" to="(570,170)"/>
@@ -2994,7 +3325,6 @@ fc 60 ee fc f2 66 da f2
     <wire from="(670,740)" to="(690,740)"/>
     <wire from="(820,620)" to="(850,620)"/>
     <wire from="(470,770)" to="(470,880)"/>
-    <wire from="(150,880)" to="(190,880)"/>
     <wire from="(240,680)" to="(270,680)"/>
     <wire from="(950,620)" to="(980,620)"/>
     <wire from="(850,170)" to="(850,590)"/>
@@ -3019,13 +3349,11 @@ fc 60 ee fc f2 66 da f2
     <wire from="(360,450)" to="(360,470)"/>
     <wire from="(340,450)" to="(340,480)"/>
     <wire from="(730,580)" to="(730,680)"/>
-    <wire from="(130,890)" to="(230,890)"/>
-    <wire from="(690,850)" to="(690,890)"/>
     <wire from="(790,220)" to="(920,220)"/>
+    <wire from="(170,470)" to="(170,490)"/>
     <wire from="(380,450)" to="(380,480)"/>
     <wire from="(980,620)" to="(980,890)"/>
     <wire from="(840,170)" to="(850,170)"/>
-    <wire from="(190,770)" to="(290,770)"/>
     <wire from="(310,710)" to="(310,740)"/>
     <wire from="(910,170)" to="(910,380)"/>
     <wire from="(810,480)" to="(810,510)"/>
@@ -3053,8 +3381,8 @@ fc 60 ee fc f2 66 da f2
     <wire from="(450,740)" to="(480,740)"/>
     <wire from="(780,170)" to="(800,170)"/>
     <wire from="(220,450)" to="(220,470)"/>
-    <wire from="(670,890)" to="(690,890)"/>
     <wire from="(650,190)" to="(650,220)"/>
+    <wire from="(170,470)" to="(220,470)"/>
     <wire from="(660,680)" to="(690,680)"/>
     <wire from="(490,580)" to="(490,620)"/>
     <wire from="(530,850)" to="(530,890)"/>
@@ -3072,19 +3400,18 @@ fc 60 ee fc f2 66 da f2
     <wire from="(910,170)" to="(930,170)"/>
     <wire from="(650,590)" to="(710,590)"/>
     <wire from="(610,770)" to="(710,770)"/>
-    <wire from="(270,740)" to="(270,780)"/>
     <wire from="(570,620)" to="(570,770)"/>
+    <wire from="(670,890)" to="(830,890)"/>
     <wire from="(450,680)" to="(470,680)"/>
     <wire from="(570,590)" to="(570,620)"/>
     <wire from="(890,620)" to="(910,620)"/>
     <wire from="(450,580)" to="(450,680)"/>
     <wire from="(640,170)" to="(640,380)"/>
-    <wire from="(550,890)" to="(650,890)"/>
     <wire from="(640,470)" to="(780,470)"/>
     <wire from="(980,170)" to="(980,620)"/>
     <wire from="(170,680)" to="(190,680)"/>
     <wire from="(850,590)" to="(850,620)"/>
-    <wire from="(230,780)" to="(230,890)"/>
+    <wire from="(270,740)" to="(270,790)"/>
     <wire from="(290,120)" to="(290,170)"/>
     <wire from="(800,450)" to="(800,480)"/>
     <wire from="(590,710)" to="(590,740)"/>
@@ -3095,8 +3422,6 @@ fc 60 ee fc f2 66 da f2
     <wire from="(170,580)" to="(170,680)"/>
     <wire from="(980,70)" to="(1000,70)"/>
     <wire from="(850,80)" to="(850,170)"/>
-    <wire from="(550,850)" to="(550,890)"/>
-    <wire from="(410,850)" to="(410,890)"/>
     <wire from="(780,470)" to="(910,470)"/>
     <wire from="(190,480)" to="(190,510)"/>
     <wire from="(430,110)" to="(1000,110)"/>
@@ -3106,9 +3431,9 @@ fc 60 ee fc f2 66 da f2
     <wire from="(890,480)" to="(930,480)"/>
     <wire from="(780,170)" to="(780,380)"/>
     <wire from="(650,220)" to="(790,220)"/>
-    <wire from="(690,890)" to="(830,890)"/>
+    <wire from="(160,490)" to="(170,490)"/>
     <wire from="(730,710)" to="(730,740)"/>
-    <wire from="(390,890)" to="(410,890)"/>
+    <wire from="(140,470)" to="(170,470)"/>
     <wire from="(630,620)" to="(640,620)"/>
     <wire from="(690,740)" to="(690,780)"/>
     <wire from="(290,170)" to="(290,590)"/>
@@ -3130,21 +3455,86 @@ fc 60 ee fc f2 66 da f2
     <wire from="(700,170)" to="(710,170)"/>
     <wire from="(370,590)" to="(430,590)"/>
     <wire from="(430,850)" to="(430,880)"/>
-    <wire from="(290,620)" to="(290,770)"/>
     <wire from="(290,120)" to="(1000,120)"/>
-    <wire from="(270,890)" to="(370,890)"/>
     <wire from="(430,170)" to="(430,590)"/>
     <wire from="(710,850)" to="(710,880)"/>
-    <wire from="(270,850)" to="(270,890)"/>
     <wire from="(490,620)" to="(500,620)"/>
     <wire from="(370,580)" to="(370,590)"/>
-    <wire from="(250,890)" to="(270,890)"/>
+    <wire from="(390,890)" to="(510,890)"/>
     <wire from="(670,850)" to="(670,890)"/>
     <wire from="(510,190)" to="(520,190)"/>
     <wire from="(650,780)" to="(650,890)"/>
+    <comp loc="(280,170)" name="Register (master-slave D-latch)"/>
+    <comp loc="(200,740)" name="NTI Negative Trinary Inverter">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(190,680)" name="STI Simple Ternary Inverter">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(500,380)" name="TNAND 3 input">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(410,790)" name="TAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(330,510)" name="TNAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(220,380)" name="TNAND 3 input">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(910,620)" name="CU Cycle Up">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(610,510)" name="TNAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(640,620)" name="CU Cycle Up">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(470,680)" name="STI Simple Ternary Inverter">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(420,170)" name="Register (master-slave D-latch)"/>
+    <comp loc="(610,680)" name="STI Simple Ternary Inverter">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(160,490)" name="Probe"/>
     <comp loc="(750,680)" name="STI Simple Ternary Inverter">
       <a name="facing" val="west"/>
     </comp>
+    <comp loc="(220,620)" name="CU Cycle Up">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(840,170)" name="Register (master-slave D-latch)"/>
+    <comp loc="(250,510)" name="TNAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(500,620)" name="CU Cycle Up">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(690,790)" name="TAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(530,510)" name="TNAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(270,790)" name="TAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(910,380)" name="TNAND 3 input">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(760,740)" name="NTI Negative Trinary Inverter">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(620,740)" name="NTI Negative Trinary Inverter">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(750,510)" name="TNAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(700,170)" name="Register (master-slave D-latch)"/>
     <comp lib="0" loc="(1020,100)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="6"/>
@@ -3161,27 +3551,18 @@ fc 60 ee fc f2 66 da f2
       <a name="bit10" val="5"/>
       <a name="bit11" val="5"/>
     </comp>
-    <comp loc="(330,680)" name="STI Simple Ternary Inverter">
+    <comp loc="(640,380)" name="TNAND 3 input">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(780,620)" name="CU Cycle Up">
       <a name="facing" val="west"/>
     </comp>
-    <comp loc="(140,470)" name="NTI Negative Trinary Inverter"/>
-    <comp loc="(470,510)" name="TNAND fast, 2 input, unsafe">
+    <comp loc="(360,380)" name="TNAND 3 input">
       <a name="facing" val="north"/>
     </comp>
-    <comp loc="(810,510)" name="TNAND fast, 2 input, unsafe">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(550,790)" name="TAND (min) 3 input">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(340,740)" name="NTI Negative Trinary Inverter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(530,510)" name="TNAND fast, 2 input, unsafe">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(480,740)" name="NTI Negative Trinary Inverter">
-      <a name="facing" val="west"/>
+    <comp lib="0" loc="(70,470)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
     </comp>
     <comp lib="0" loc="(1020,100)" name="Pin">
       <a name="facing" val="west"/>
@@ -3189,107 +3570,49 @@ fc 60 ee fc f2 66 da f2
       <a name="width" val="12"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(610,510)" name="TNAND fast, 2 input, unsafe">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(410,790)" name="TAND (min) 3 input">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(420,170)" name="Register (master-slave D-latch)"/>
-    <comp loc="(470,680)" name="STI Simple Ternary Inverter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(360,380)" name="TNAND 3 input">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(670,510)" name="TNAND fast, 2 input, unsafe">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(330,510)" name="TNAND fast, 2 input, unsafe">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(270,790)" name="TAND (min) 3 input">
-      <a name="facing" val="north"/>
+    <comp lib="0" loc="(140,220)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
     </comp>
     <comp loc="(360,620)" name="CU Cycle Up">
       <a name="facing" val="west"/>
     </comp>
-    <comp loc="(500,380)" name="TNAND 3 input">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(190,510)" name="TNAND fast, 2 input, unsafe">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(910,620)" name="CU Cycle Up">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(620,740)" name="NTI Negative Trinary Inverter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(220,620)" name="CU Cycle Up">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(690,790)" name="TAND (min) 3 input">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(250,510)" name="TNAND fast, 2 input, unsafe">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(280,170)" name="Register (master-slave D-latch)"/>
-    <comp loc="(220,380)" name="TNAND 3 input">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(640,620)" name="CU Cycle Up">
+    <comp loc="(330,680)" name="STI Simple Ternary Inverter">
       <a name="facing" val="west"/>
     </comp>
     <comp loc="(890,510)" name="STI Simple Ternary Inverter">
       <a name="facing" val="north"/>
     </comp>
-    <comp loc="(760,740)" name="NTI Negative Trinary Inverter">
+    <comp loc="(470,510)" name="TNAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(550,790)" name="TAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(970,170)" name="Register (master-slave D-latch)"/>
+    <comp loc="(340,740)" name="NTI Negative Trinary Inverter">
       <a name="facing" val="west"/>
     </comp>
-    <comp loc="(560,170)" name="Register (master-slave D-latch)"/>
-    <comp loc="(700,170)" name="Register (master-slave D-latch)"/>
-    <comp loc="(750,510)" name="TNAND fast, 2 input, unsafe">
+    <comp loc="(140,470)" name="NTI Negative Trinary Inverter"/>
+    <comp loc="(390,510)" name="TNAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(810,510)" name="TNAND fast, 2 input, unsafe">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(480,740)" name="NTI Negative Trinary Inverter">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(190,510)" name="TNAND fast, 2 input, unsafe">
       <a name="facing" val="north"/>
     </comp>
     <comp loc="(780,380)" name="TNAND 3 input">
       <a name="facing" val="north"/>
     </comp>
-    <comp loc="(910,380)" name="TNAND 3 input">
+    <comp loc="(670,510)" name="TNAND fast, 2 input, unsafe">
       <a name="facing" val="north"/>
     </comp>
-    <comp lib="0" loc="(70,470)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp loc="(610,680)" name="STI Simple Ternary Inverter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(500,620)" name="CU Cycle Up">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(390,510)" name="TNAND fast, 2 input, unsafe">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp loc="(190,680)" name="STI Simple Ternary Inverter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(840,170)" name="Register (master-slave D-latch)"/>
-    <comp lib="0" loc="(140,220)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp loc="(200,740)" name="NTI Negative Trinary Inverter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(970,170)" name="Register (master-slave D-latch)"/>
-    <comp loc="(780,620)" name="CU Cycle Up">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(640,380)" name="TNAND 3 input">
-      <a name="facing" val="north"/>
-    </comp>
+    <comp loc="(560,170)" name="Register (master-slave D-latch)"/>
   </circuit>
   <circuit name="keyboard input">
     <a name="circuit" val="keyboard input"/>
@@ -3448,31 +3771,25 @@ fc 60 ee fc f2 66 da f2
     <wire from="(840,600)" to="(860,600)"/>
     <wire from="(90,230)" to="(100,230)"/>
     <wire from="(30,170)" to="(280,170)"/>
-    <comp lib="0" loc="(450,390)" name="Pin">
+    <comp lib="1" loc="(860,480)" name="OR Gate"/>
+    <comp lib="0" loc="(570,450)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="1" loc="(840,320)" name="Constant">
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(280,150)" name="Probe"/>
-    <comp lib="1" loc="(690,730)" name="OR Gate"/>
-    <comp loc="(460,230)" name="Register (master-slave D-latch)"/>
     <comp loc="(90,230)" name="Register (master-slave D-latch)"/>
-    <comp lib="0" loc="(810,310)" name="Splitter"/>
-    <comp lib="1" loc="(690,540)" name="OR Gate"/>
-    <comp loc="(180,230)" name="Register (master-slave D-latch)"/>
-    <comp lib="0" loc="(370,150)" name="Probe"/>
-    <comp lib="0" loc="(710,280)" name="Splitter"/>
-    <comp lib="0" loc="(570,390)" name="Pin">
-      <a name="tristate" val="false"/>
-    </comp>
+    <comp lib="1" loc="(690,670)" name="OR Gate"/>
     <comp lib="0" loc="(510,450)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="1" loc="(690,480)" name="OR Gate"/>
     <comp lib="1" loc="(690,610)" name="OR Gate"/>
-    <comp lib="1" loc="(690,670)" name="OR Gate"/>
-    <comp lib="1" loc="(860,480)" name="OR Gate"/>
+    <comp lib="0" loc="(510,390)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="1" loc="(690,480)" name="OR Gate"/>
+    <comp lib="0" loc="(470,150)" name="Probe"/>
+    <comp lib="1" loc="(690,420)" name="OR Gate"/>
+    <comp loc="(180,230)" name="Register (master-slave D-latch)"/>
+    <comp lib="0" loc="(280,150)" name="Probe"/>
+    <comp loc="(460,230)" name="Register (master-slave D-latch)"/>
     <comp lib="0" loc="(800,90)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="6"/>
@@ -3489,42 +3806,48 @@ fc 60 ee fc f2 66 da f2
       <a name="bit10" val="5"/>
       <a name="bit11" val="5"/>
     </comp>
-    <comp loc="(550,230)" name="Register (master-slave D-latch)"/>
-    <comp loc="(670,310)" name="NTI Negative Trinary Inverter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="0" loc="(510,390)" name="Pin">
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(100,150)" name="Probe"/>
-    <comp lib="0" loc="(510,510)" name="Pin">
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="1" loc="(690,420)" name="OR Gate"/>
-    <comp lib="0" loc="(450,510)" name="Pin">
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(470,150)" name="Probe"/>
-    <comp lib="0" loc="(570,450)" name="Pin">
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(450,450)" name="Pin">
+    <comp lib="0" loc="(710,280)" name="Splitter"/>
+    <comp lib="0" loc="(370,150)" name="Probe"/>
+    <comp lib="0" loc="(450,390)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
     <comp lib="0" loc="(820,600)" name="Splitter"/>
+    <comp loc="(550,230)" name="Register (master-slave D-latch)"/>
+    <comp lib="0" loc="(510,510)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="1" loc="(690,540)" name="OR Gate"/>
+    <comp lib="1" loc="(690,730)" name="OR Gate"/>
     <comp lib="0" loc="(190,150)" name="Probe"/>
+    <comp lib="0" loc="(450,450)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(570,390)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp loc="(270,230)" name="Register (master-slave D-latch)"/>
+    <comp lib="0" loc="(450,510)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(570,510)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(810,310)" name="Splitter"/>
+    <comp loc="(360,230)" name="Register (master-slave D-latch)"/>
+    <comp loc="(670,310)" name="NTI Negative Trinary Inverter">
+      <a name="facing" val="west"/>
+    </comp>
     <comp lib="0" loc="(820,90)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="12"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(270,230)" name="Register (master-slave D-latch)"/>
-    <comp loc="(360,230)" name="Register (master-slave D-latch)"/>
     <comp lib="0" loc="(560,150)" name="Probe"/>
-    <comp lib="0" loc="(570,510)" name="Pin">
-      <a name="tristate" val="false"/>
+    <comp lib="1" loc="(840,320)" name="Constant">
+      <a name="value" val="0x0"/>
     </comp>
+    <comp lib="0" loc="(100,150)" name="Probe"/>
   </circuit>
   <circuit name="tri-led-driver">
     <a name="circuit" val="tri-led-driver"/>
@@ -3552,7 +3875,6 @@ fc 60 ee fc f2 66 da f2
     <wire from="(560,500)" to="(870,500)"/>
     <wire from="(830,420)" to="(870,420)"/>
     <wire from="(520,430)" to="(780,430)"/>
-    <comp lib="1" loc="(830,420)" name="OR Gate"/>
     <comp lib="0" loc="(320,420)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
@@ -3570,6 +3892,7 @@ fc 60 ee fc f2 66 da f2
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="1" loc="(830,420)" name="OR Gate"/>
     <comp lib="0" loc="(870,420)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -3714,100 +4037,25 @@ fc 60 ee fc f2 66 da f2
     <wire from="(310,190)" to="(550,190)"/>
     <wire from="(1030,420)" to="(1060,420)"/>
     <wire from="(480,700)" to="(550,700)"/>
-    <comp lib="5" loc="(650,210)" name="LED">
+    <comp lib="5" loc="(650,310)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(650,370)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(250,820)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(250,970)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(435,84)" name="Text">
-      <a name="text" val="This doesn't work.  Idle in 1, doesn't show latch behavior unless move one input to -1"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="5" loc="(870,390)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(880,360)" name="tri-led-driver"/>
-    <comp lib="5" loc="(250,880)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(880,260)" name="tri-led-driver"/>
-    <comp lib="0" loc="(810,220)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="5" loc="(650,630)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(660,240)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(480,600)" name="PTI Positive Trinary Inverter"/>
-    <comp lib="5" loc="(660,980)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(650,730)" name="LED">
-      <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
     <comp lib="0" loc="(810,320)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp loc="(400,700)" name="TAND (min) 3 input"/>
-    <comp lib="0" loc="(190,620)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="5" loc="(650,1010)" name="LED">
-      <a name="facing" val="south"/>
+    <comp loc="(1160,420)" name="tri-led-driver"/>
+    <comp lib="5" loc="(250,820)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(1160,420)" name="LED">
+    <comp loc="(1030,320)" name="TNAND 3 input"/>
+    <comp lib="5" loc="(660,880)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(870,230)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(650,850)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(400,600)" name="TAND (min) 3 input"/>
-    <comp lib="5" loc="(1150,350)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(660,700)" name="tri-led-driver"/>
-    <comp loc="(260,570)" name="tri-led-driver"/>
-    <comp lib="5" loc="(650,950)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
     <comp lib="5" loc="(660,600)" name="LED">
@@ -3815,210 +4063,13 @@ fc 60 ee fc f2 66 da f2
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(250,750)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(660,980)" name="tri-led-driver"/>
-    <comp lib="5" loc="(660,700)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(650,570)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(1150,290)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(1150,450)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(260,850)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(880,460)" name="tri-led-driver"/>
-    <comp loc="(660,240)" name="tri-led-driver"/>
-    <comp loc="(660,880)" name="tri-led-driver"/>
-    <comp loc="(1160,220)" name="tri-led-driver"/>
-    <comp loc="(260,850)" name="tri-led-driver"/>
-    <comp lib="5" loc="(870,330)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(260,1000)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(190,900)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(190,260)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp loc="(260,720)" name="tri-led-driver"/>
-    <comp lib="5" loc="(250,540)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(1150,190)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(810,420)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp loc="(410,880)" name="TNOR 3 input"/>
-    <comp lib="5" loc="(250,180)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(660,340)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(880,260)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(190,320)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="5" loc="(650,670)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(190,680)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp loc="(260,210)" name="tri-led-driver"/>
-    <comp loc="(660,600)" name="tri-led-driver"/>
-    <comp loc="(1030,320)" name="TNAND 3 input"/>
-    <comp lib="5" loc="(260,720)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(260,570)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(250,330)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(660,880)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(260,210)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(490,492)" name="Text">
-      <a name="text" val="Both -1 acts as a nor-rs latch, just shows 1 on both outputs"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(505,473)" name="Text">
-      <a name="text" val="This does.  Idle in 0 or 1, latches when an input transitions to -1."/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="5" loc="(250,690)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(1150,390)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(870,290)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(650,910)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(660,340)" name="tri-led-driver"/>
-    <comp lib="5" loc="(880,460)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(1030,420)" name="TNAND 3 input"/>
-    <comp lib="5" loc="(650,310)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(480,700)" name="PTI Positive Trinary Inverter"/>
-    <comp lib="5" loc="(880,360)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(190,960)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp loc="(410,340)" name="TNAND 3 input"/>
     <comp lib="0" loc="(471,512)" name="Text">
       <a name="text" val="But, is incomplete because it only has 2 stable states"/>
       <a name="valign" val="top"/>
     </comp>
-    <comp lib="5" loc="(870,490)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(410,980)" name="TNOR 3 input"/>
-    <comp lib="5" loc="(650,270)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp loc="(1030,220)" name="TNAND 3 input"/>
-    <comp loc="(260,1000)" name="tri-led-driver"/>
-    <comp lib="5" loc="(250,240)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(250,390)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(250,1030)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(1160,220)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
+    <comp lib="0" loc="(810,420)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
     </comp>
     <comp lib="5" loc="(1160,320)" name="LED">
       <a name="facing" val="east"/>
@@ -4030,13 +4081,161 @@ fc 60 ee fc f2 66 da f2
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
+    <comp loc="(880,360)" name="tri-led-driver"/>
+    <comp lib="5" loc="(870,390)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(660,240)" name="tri-led-driver"/>
+    <comp lib="5" loc="(870,290)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(660,980)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(650,1010)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(650,630)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(650,210)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(490,492)" name="Text">
+      <a name="text" val="Both -1 acts as a nor-rs latch, just shows 1 on both outputs"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="5" loc="(650,730)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(400,700)" name="TAND (min) 3 input"/>
+    <comp lib="5" loc="(260,850)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(880,460)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(1150,290)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(870,230)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(1160,320)" name="tri-led-driver"/>
+    <comp lib="5" loc="(260,720)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(880,260)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(260,210)" name="tri-led-driver"/>
+    <comp lib="5" loc="(260,1000)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(1160,420)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(1150,390)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(435,84)" name="Text">
+      <a name="text" val="This doesn't work.  Idle in 1, doesn't show latch behavior unless move one input to -1"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(190,320)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="5" loc="(650,850)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(260,210)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(250,750)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(250,970)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(880,460)" name="tri-led-driver"/>
+    <comp loc="(880,260)" name="tri-led-driver"/>
+    <comp lib="5" loc="(650,570)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(1150,190)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
     <comp lib="5" loc="(250,600)" name="LED">
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp loc="(410,240)" name="TNAND 3 input"/>
-    <comp loc="(260,360)" name="tri-led-driver"/>
-    <comp lib="5" loc="(1150,250)" name="LED">
+    <comp lib="0" loc="(190,900)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp loc="(260,1000)" name="tri-led-driver"/>
+    <comp lib="0" loc="(190,960)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="5" loc="(870,330)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(1030,220)" name="TNAND 3 input"/>
+    <comp lib="5" loc="(250,1030)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(1150,350)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(190,260)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="5" loc="(250,240)" name="LED">
       <a name="facing" val="south"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
@@ -4045,12 +4244,136 @@ fc 60 ee fc f2 66 da f2
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
+    <comp lib="5" loc="(660,240)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(1150,250)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(250,330)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(410,980)" name="TNOR 3 input"/>
+    <comp loc="(480,700)" name="PTI Positive Trinary Inverter"/>
+    <comp lib="5" loc="(650,950)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(260,570)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(250,880)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(810,220)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(505,473)" name="Text">
+      <a name="text" val="This does.  Idle in 0 or 1, latches when an input transitions to -1."/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp loc="(260,720)" name="tri-led-driver"/>
+    <comp lib="5" loc="(660,340)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(400,600)" name="TAND (min) 3 input"/>
+    <comp lib="5" loc="(650,910)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(1160,220)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(190,680)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="5" loc="(250,180)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(260,850)" name="tri-led-driver"/>
+    <comp loc="(660,880)" name="tri-led-driver"/>
+    <comp loc="(1160,220)" name="tri-led-driver"/>
+    <comp lib="5" loc="(250,690)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(410,240)" name="TNAND 3 input"/>
+    <comp lib="5" loc="(650,670)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(410,880)" name="TNOR 3 input"/>
+    <comp loc="(260,570)" name="tri-led-driver"/>
+    <comp lib="5" loc="(1150,450)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(660,700)" name="tri-led-driver"/>
+    <comp lib="5" loc="(880,360)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(650,370)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(660,340)" name="tri-led-driver"/>
+    <comp loc="(260,360)" name="tri-led-driver"/>
+    <comp lib="5" loc="(250,390)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(870,490)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(650,270)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(1030,420)" name="TNAND 3 input"/>
+    <comp loc="(660,600)" name="tri-led-driver"/>
+    <comp lib="0" loc="(190,620)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="5" loc="(250,540)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(480,600)" name="PTI Positive Trinary Inverter"/>
     <comp lib="0" loc="(431,109)" name="Text">
       <a name="text" val="But in that case 'glitches' to 0 before latching to -1"/>
       <a name="valign" val="top"/>
     </comp>
-    <comp loc="(1160,420)" name="tri-led-driver"/>
-    <comp loc="(1160,320)" name="tri-led-driver"/>
+    <comp lib="5" loc="(660,700)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(660,980)" name="tri-led-driver"/>
+    <comp loc="(410,340)" name="TNAND 3 input"/>
   </circuit>
   <circuit name="Muller C gate notes">
     <a name="circuit" val="Muller C gate notes"/>
@@ -4100,39 +4423,76 @@ fc 60 ee fc f2 66 da f2
     <wire from="(440,370)" to="(440,380)"/>
     <wire from="(650,370)" to="(650,380)"/>
     <wire from="(310,240)" to="(310,270)"/>
-    <comp loc="(400,290)" name="TNAND 3 input"/>
-    <comp lib="0" loc="(210,430)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp loc="(440,480)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="5" loc="(470,390)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#0ff016"/>
+    <comp lib="5" loc="(410,390)" name="LED">
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp loc="(580,370)" name="TNAND 3 input"/>
+    <comp lib="5" loc="(260,340)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(400,370)" name="TNAND 3 input"/>
+    <comp loc="(440,320)" name="tri-led-driver">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="0" loc="(718,87)" name="Text">
+      <a name="text" val="If that's the case, B broke the rules here, and the C gate works"/>
+      <a name="valign" val="top"/>
+    </comp>
     <comp lib="5" loc="(230,330)" name="LED">
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(680,390)" name="LED">
+    <comp loc="(440,400)" name="tri-led-driver">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp loc="(400,450)" name="TNAND 3 input"/>
+    <comp lib="0" loc="(442,196)" name="Text">
+      <a name="text" val="Initializes to unknown state, set both inputs to -1 to initialize"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="5" loc="(440,320)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(650,400)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(410,470)" name="LED">
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(470,470)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="5" loc="(440,400)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(453,109)" name="Text">
+      <a name="text" val="T3 0, 1, 0 -- BAD!"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp loc="(260,460)" name="tri-led-driver">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="5" loc="(260,460)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#f0eb20"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(512,27)" name="Text">
+      <a name="text" val="*Almost* works.  Fails when one input moves two states, for example:"/>
+      <a name="valign" val="top"/>
     </comp>
     <comp lib="5" loc="(620,390)" name="LED">
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp loc="(260,340)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="0" loc="(451,46)" name="Text">
-      <a name="text" val="T0 -1, -1, -1 -- ok"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="5" loc="(290,450)" name="LED">
+    <comp lib="5" loc="(470,310)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
@@ -4141,114 +4501,77 @@ fc 60 ee fc f2 66 da f2
       <a name="text" val="Usually oscilates if you move it?!"/>
       <a name="valign" val="top"/>
     </comp>
-    <comp lib="0" loc="(718,87)" name="Text">
-      <a name="text" val="If that's the case, B broke the rules here, and the C gate works"/>
+    <comp lib="0" loc="(450,87)" name="Text">
+      <a name="text" val="T2 -1, 1, -1 -- ok"/>
       <a name="valign" val="top"/>
-    </comp>
-    <comp lib="5" loc="(290,330)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(440,320)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(410,470)" name="LED">
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(700,370)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="2"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(512,27)" name="Text">
-      <a name="text" val="*Almost* works.  Fails when one input moves two states, for example:"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="0" loc="(779,66)" name="Text">
-      <a name="text" val="Like the RS latch, we can set a rule, you must not advance until gate matches you."/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="5" loc="(470,310)" name="LED">
-      <a name="facing" val="east"/>
-      <a name="color" val="#0ff016"/>
-      <a name="offcolor" val="#40404000"/>
     </comp>
     <comp lib="5" loc="(230,450)" name="LED">
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(410,390)" name="LED">
+    <comp lib="5" loc="(470,390)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="0" loc="(450,66)" name="Text">
-      <a name="text" val="T1 -1, 0, -1 -- ok"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp loc="(260,460)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="5" loc="(650,400)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="5" loc="(410,310)" name="LED">
-      <a name="offcolor" val="#40404000"/>
-    </comp>
-    <comp lib="0" loc="(453,109)" name="Text">
-      <a name="text" val="T3 0, 1, 0 -- BAD!"/>
-      <a name="valign" val="top"/>
-    </comp>
+    <comp loc="(400,290)" name="TNAND 3 input"/>
     <comp lib="5" loc="(440,480)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#f0eb20"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="0" loc="(442,196)" name="Text">
-      <a name="text" val="Initializes to unknown state, set both inputs to -1 to initialize"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp loc="(400,370)" name="TNAND 3 input"/>
-    <comp loc="(650,400)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp loc="(400,450)" name="TNAND 3 input"/>
-    <comp loc="(440,400)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="5" loc="(470,470)" name="LED">
+    <comp lib="5" loc="(680,390)" name="LED">
       <a name="facing" val="east"/>
       <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="0" loc="(450,87)" name="Text">
-      <a name="text" val="T2 -1, 1, -1 -- ok"/>
-      <a name="valign" val="top"/>
-    </comp>
-    <comp lib="5" loc="(440,400)" name="LED">
+    <comp loc="(260,340)" name="tri-led-driver">
       <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
-      <a name="offcolor" val="#40404000"/>
     </comp>
-    <comp lib="5" loc="(260,460)" name="LED">
+    <comp loc="(440,480)" name="tri-led-driver">
       <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
+    </comp>
+    <comp lib="5" loc="(410,310)" name="LED">
       <a name="offcolor" val="#40404000"/>
     </comp>
     <comp lib="0" loc="(210,310)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp loc="(440,320)" name="tri-led-driver">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="5" loc="(260,340)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#f0eb20"/>
+    <comp lib="5" loc="(290,450)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#0ff016"/>
       <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp loc="(580,370)" name="TNAND 3 input"/>
+    <comp lib="0" loc="(700,370)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="5" loc="(290,330)" name="LED">
+      <a name="facing" val="east"/>
+      <a name="color" val="#0ff016"/>
+      <a name="offcolor" val="#40404000"/>
+    </comp>
+    <comp lib="0" loc="(451,46)" name="Text">
+      <a name="text" val="T0 -1, -1, -1 -- ok"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(779,66)" name="Text">
+      <a name="text" val="Like the RS latch, we can set a rule, you must not advance until gate matches you."/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp lib="0" loc="(210,430)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(450,66)" name="Text">
+      <a name="text" val="T1 -1, 0, -1 -- ok"/>
+      <a name="valign" val="top"/>
+    </comp>
+    <comp loc="(650,400)" name="tri-led-driver">
+      <a name="facing" val="south"/>
     </comp>
   </circuit>
 </project>
